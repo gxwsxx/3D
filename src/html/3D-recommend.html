@@ -51,9 +51,9 @@
 
 		<div id="recommend-list" class="recommend-list">
 			<div class="item" id="item0">
-				<h2>狂野飚车狂野飚车狂野飚车狂野飚车</h2>
+				<h2>狂野飚车车</h2>
 				<div class="heat">
-					<span class="icon-top1">TOP1</span>
+					<span class="icon-top1"></span>
 					<span>热度：100061</span>
 				</div>
 				<img src="../public/images/default03.jpg" />
@@ -61,7 +61,7 @@
 			<div class="item" id="item1">
 				<h2>狂野飚车</h2>
 				<div class="heat">
-					<span class="icon-top1">TOP1</span>
+					<span class="icon-top2"></span>
 					<span>热度：100061</span>
 				</div>
 				<img src="../public/images/default03.jpg" />
@@ -69,7 +69,7 @@
 			<div class="item" id="item2">
 				<h2>狂野飚车</h2>
 				<div class="heat">
-					<span class="icon-top1">TOP1</span>
+					<span class="icon-top3"></span>
 					<span>热度：100061</span>
 				</div>
 				<img src="../public/images/default03.jpg" />
@@ -83,7 +83,7 @@
 		<span id="footer3" class="my"></span>
 		<span id="footer4" class="index"></span>
 	</div>
-	<div id="controller">
+	<div id="controller" class="controller">
 		<div class="controller-nav">
 			<a href="#" onfocus="addFocus('#nav0')" onblur="removeFocus('#nav0')"><img src="../public/images/dot.gif" /></a>
 			<a href="#" onfocus="addFocus('#nav1')" onblur="removeFocus('#nav1')"><img src="../public/images/dot.gif" /></a>
@@ -91,22 +91,27 @@
 			<a href="#" onfocus="addFocus('#nav3')" onblur="removeFocus('#nav3')"><img src="../public/images/dot.gif" /></a>
 		</div>
 		<div class="controller-content">
-			<a href="#" onfocus="addFocus('#recommend-left')" onblur="removeFocus('#recommend-left')"><img src="../public/images/dot.gif" /></a>
+			<div id="con-left" class="con-left">
+				<a href="#" onfocus="addFocus('#recommend-left')" onblur="removeFocus('#recommend-left')"><img src="../public/images/dot.gif" /></a>
+			</div>
 
-			<a href="#" onfocus="addFocus('#tablist1');show('#panelTrans1')" onblur="removeFocus('#tablist1');hide('#panelTrans1')"><img src="../public/images/dot.gif" /></a>
-			<a href="#" onfocus="addFocus('#tablist2');show('#panelTrans2')" onblur="removeFocus('#tablist2');hide('#panelTrans2')"><img src="../public/images/dot.gif" /></a>
+			<div id="con-slide" class="con-slide">
+				<a href="#" data-i="0" onfocus="addFocus('#tablist1');show('#panelTrans1')" onblur="removeFocus('#tablist1');hide('#panelTrans1')"><img src="../public/images/dot.gif" /></a>
+				<a href="#" data-i="1" onfocus="addFocus('#tablist2');show('#panelTrans2')" onblur="removeFocus('#tablist2');hide('#panelTrans2')"><img src="../public/images/dot.gif" /></a>
+			</div>
 
-			<a href="#" onfocus="addFocus('#item0')" onblur="removeFocus('#item0')"><img src="../public/images/dot.gif" /></a>
-			<a href="#" onfocus="addFocus('#item1')" onblur="removeFocus('#item1')"><img src="../public/images/dot.gif" /></a>
-			<a href="#" onfocus="addFocus('#item2')" onblur="removeFocus('#item2')"><img src="../public/images/dot.gif" /></a>
-
-
+			<div id="con-list" class="con-list">
+				<a href="#" onfocus="addFocus('#item0')" onblur="removeFocus('#item0')"><img src="../public/images/dot.gif" /></a>
+				<a href="#" onfocus="addFocus('#item1')" onblur="removeFocus('#item1')"><img src="../public/images/dot.gif" /></a>
+				<a href="#" onfocus="addFocus('#item2')" onblur="removeFocus('#item2')"><img src="../public/images/dot.gif" /></a>
+			</div>
+		</div>
+		<div class="controller-footer">
 			<a href="#" onfocus="addFocus('#footer0')" onblur="removeFocus('#footer0')"><img src="../public/images/dot.gif" /></a>
 			<a href="#" onfocus="addFocus('#footer1')" onblur="removeFocus('#footer1')"><img src="../public/images/dot.gif" /></a>
 			<a href="#" onfocus="addFocus('#footer2')" onblur="removeFocus('#footer2')"><img src="../public/images/dot.gif" /></a>
 			<a href="#" onfocus="addFocus('#footer3')" onblur="removeFocus('#footer3')"><img src="../public/images/dot.gif" /></a>
 			<a href="#" onfocus="addFocus('#footer4')" onblur="removeFocus('#footer4')"><img src="../public/images/dot.gif" /></a>
-
 		</div>
 	</div>
 
@@ -115,7 +120,7 @@
 			<div class="item" id="item{{i}}">
 				<h2>{{value.title}}</h2>
 				<div class="heat">
-					<span class="icon-top1">TOP{{i + 1}}</span>
+					<span class="icon-top{{i + 1}}"></span>
 					<span>热度：{{value.heat}}</span>
 				</div>
 				<img src="{{value.img | defaultImg}}" />
@@ -178,8 +183,15 @@
 		}
 		function removeFocus(el){
 			var element = document.querySelector(el);
-			var classname = element.className.replace('focus', "").trim();
-			element.className = classname;
+			var ele = element.className.split(" ");
+			var classname = [];
+			ele.forEach(function(v){
+				if(v !== "focus"){
+					classname.push(v);
+				}
+			});
+			// var classname = element.className.replace('focus', "").trim();
+			element.className = classname.join(" ");
 		}
 	</script>
 </body>
