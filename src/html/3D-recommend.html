@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3D-推荐</title>
+	<link rel="stylesheet" href="../public/css/style.css" />
+	<script src="../public/js/template.js"></script>
+	<!--<script src="../public/js/mock-min.js"></script>-->
+</head>
+<body>
+	<div id="header" class="header">
+		<span id="nav0" class="recommend active"></span>
+		<span id="nav1" class="free"></span>
+		<span id="nav2" class="sight"></span>
+		<span id="nav3" class="movie"></span>
+		<span class="premiere hidden"></span>
+	</div>
+	<div id="content" class="content">
+		<div id="recommend-left" class="recommend-left">
+			<div style="position: relative">
+				<span class="icon-new"></span>
+				<img src="../uploads/img1.jpg" />
+				<div class="title">马达加斯加企鹅马达加斯加企鹅马达加斯加企鹅</div>
+			</div>
+		</div>
+
+		<div id="recommend-slide" class="recommend-slide">
+			<ul class="tab_content">
+				<li class="tabpanel" id="panelTrans1">
+					<span class="icon-push"></span>
+					<img src="../uploads/img2.jpg">
+					<div class="tabdetail">
+						<h2>啊凡达</h2>
+						<p>是一步啊凡达啊凡达啊凡达啊凡达啊凡达啊凡达啊凡达啊凡达啊凡达啊凡达啊凡达啊凡达达啊凡达啊凡达啊凡达啊凡达啊凡达啊凡达</p>
+					</div>
+				</li>
+				<li class="tabpanel" id="panelTrans2">
+					<span class="icon-push"></span>
+					<img src="../public/images/default02.jpg">
+					<div class="tabdetail">
+						<h2>英雄联盟</h2>
+						<p>英雄联盟英雄联盟英雄联盟英雄联盟</p>
+					</div>
+				</li>
+			</ul>
+			<ul class="tablist">
+				<span id="tablist1" class="icon-rect"></span>
+				<span id="tablist2" class="icon-rect"></span>
+			</ul>
+		</div>
+
+		<div id="recommend-list" class="recommend-list">
+			<div class="item" id="item0">
+				<h2>狂野飚车狂野飚车狂野飚车狂野飚车</h2>
+				<div class="heat">
+					<span class="icon-top1">TOP1</span>
+					<span>热度：100061</span>
+				</div>
+				<img src="../public/images/default03.jpg" />
+			</div>
+			<div class="item" id="item1">
+				<h2>狂野飚车</h2>
+				<div class="heat">
+					<span class="icon-top1">TOP1</span>
+					<span>热度：100061</span>
+				</div>
+				<img src="../public/images/default03.jpg" />
+			</div>
+			<div class="item" id="item2">
+				<h2>狂野飚车</h2>
+				<div class="heat">
+					<span class="icon-top1">TOP1</span>
+					<span>热度：100061</span>
+				</div>
+				<img src="../public/images/default03.jpg" />
+			</div>
+		</div>
+	</div>
+	<div id="footer" class="footer">
+		<span id="footer0" class="home"></span>
+		<span id="footer1" class="back"></span>
+		<span id="footer2" class="search"></span>
+		<span id="footer3" class="my"></span>
+		<span id="footer4" class="index"></span>
+	</div>
+	<div id="controller">
+		<div class="controller-nav">
+			<a href="#" onfocus="addFocus('#nav0')" onblur="removeFocus('#nav0')"><img src="../public/images/dot.gif" /></a>
+			<a href="#" onfocus="addFocus('#nav1')" onblur="removeFocus('#nav1')"><img src="../public/images/dot.gif" /></a>
+			<a href="#" onfocus="addFocus('#nav2')" onblur="removeFocus('#nav2')"><img src="../public/images/dot.gif" /></a>
+			<a href="#" onfocus="addFocus('#nav3')" onblur="removeFocus('#nav3')"><img src="../public/images/dot.gif" /></a>
+		</div>
+		<div class="controller-content">
+			<a href="#" onfocus="addFocus('#recommend-left')" onblur="removeFocus('#recommend-left')"><img src="../public/images/dot.gif" /></a>
+
+			<a href="#" onfocus="addFocus('#tablist1');show('#panelTrans1')" onblur="removeFocus('#tablist1');hide('#panelTrans1')"><img src="../public/images/dot.gif" /></a>
+			<a href="#" onfocus="addFocus('#tablist2');show('#panelTrans2')" onblur="removeFocus('#tablist2');hide('#panelTrans2')"><img src="../public/images/dot.gif" /></a>
+
+			<a href="#" onfocus="addFocus('#item0')" onblur="removeFocus('#item0')"><img src="../public/images/dot.gif" /></a>
+			<a href="#" onfocus="addFocus('#item1')" onblur="removeFocus('#item1')"><img src="../public/images/dot.gif" /></a>
+			<a href="#" onfocus="addFocus('#item2')" onblur="removeFocus('#item2')"><img src="../public/images/dot.gif" /></a>
+
+
+			<a href="#" onfocus="addFocus('#footer0')" onblur="removeFocus('#footer0')"><img src="../public/images/dot.gif" /></a>
+			<a href="#" onfocus="addFocus('#footer1')" onblur="removeFocus('#footer1')"><img src="../public/images/dot.gif" /></a>
+			<a href="#" onfocus="addFocus('#footer2')" onblur="removeFocus('#footer2')"><img src="../public/images/dot.gif" /></a>
+			<a href="#" onfocus="addFocus('#footer3')" onblur="removeFocus('#footer3')"><img src="../public/images/dot.gif" /></a>
+			<a href="#" onfocus="addFocus('#footer4')" onblur="removeFocus('#footer4')"><img src="../public/images/dot.gif" /></a>
+
+		</div>
+	</div>
+
+	<script id="listTpl" type="text/html">
+		{{each list as value i}}
+			<div class="item" id="item{{i}}">
+				<h2>{{value.title}}</h2>
+				<div class="heat">
+					<span class="icon-top1">TOP{{i + 1}}</span>
+					<span>热度：{{value.heat}}</span>
+				</div>
+				<img src="{{value.img | defaultImg}}" />
+			</div>
+		{{/each}}
+	</script>
+	<script>
+		template.helper('defaultImg', function(img, defimg){
+			var defimg = defimg;
+			if(!defimg) {
+				defimg = '../public/images/default03.jpg';
+			}
+			if(!img){
+				img = defimg;
+			}
+			return img;
+		});
+		var data = {
+		    "list": [
+		        {
+		            "title": "狂野飚车",
+		            "heat": 73957,
+		            "img": "../uploads/img1.jpg"
+		        },
+		        {
+		            "title": "马清月蓓岩",
+		            "heat": 12530,
+		            "img": "../uploads/img1.jpg"
+		        },
+		        {
+		            "title": "马清月蓓岩",
+		            "heat": 1,
+		            "img": ""
+		        }
+		    ]
+		}
+		// var mockData = {
+		// 	'list|1-3': [{
+		// 		'title': Random.cname(5),
+		// 		'heat': Random.integer(1,99999),
+		// 		'img': Random.image()
+		// 	}]
+		// };
+		// var data = Mock.mock(mockData);
+		// console.log(JSON.stringify(data, null, 4));
+		var html = template('listTpl', data);
+		document.getElementById('recommend-list').innerHTML = html;
+
+
+		function show(el){
+			document.querySelector(el).style.display = "block";
+		}
+		function hide(el){
+			document.querySelector(el).style.display = "none";
+		}
+		function addFocus(el){
+			var element = document.querySelector(el);
+			var classname = element.className;
+			element.className = classname + ' focus';
+		}
+		function removeFocus(el){
+			var element = document.querySelector(el);
+			var classname = element.className.replace('focus', "").trim();
+			element.className = classname;
+		}
+	</script>
+</body>
+</html>
