@@ -4,8 +4,8 @@
 	<meta charset="UTF-8">
 	<title>3D-推荐</title>
 	<link rel="stylesheet" href="../public/css/style.css" />
+	<link rel="stylesheet" href="../public/css/recommend.css" />
 	<script src="../public/js/template.js"></script>
-	<!--<script src="../public/js/mock-min.js"></script>-->
 </head>
 <body>
 	<div id="header" class="header">
@@ -115,7 +115,8 @@
 			<a href="#" onfocus="addFocus('#footer4')" onblur="removeFocus('#footer4')"><img src="../public/images/dot.gif" /></a>
 		</div>
 	</div>
-	
+	<script src="../public/js/common.js"></script>
+	<script src="../public/js/recommend.js"></script>
 	<script id="listTpl" type="text/html">
 		{{each list as value i}}
 			<div class="item" id="item{{i}}">
@@ -158,113 +159,8 @@
 		        }
 		    ]
 		}
-		// var mockData = {
-		// 	'list|1-3': [{
-		// 		'title': Random.cname(5),
-		// 		'heat': Random.integer(1,99999),
-		// 		'img': Random.image()
-		// 	}]
-		// };
-		// var data = Mock.mock(mockData);
-		// console.log(JSON.stringify(data, null, 4));
 		var html = template('listTpl', data);
 		document.getElementById('recommend-list').innerHTML = html;
-
-
-		function show(el){
-			document.querySelector(el).style.display = "block";
-		}
-		function hide(el){
-			document.querySelector(el).style.display = "none";
-		}
-		function addFocus(el){
-			var element = document.querySelector(el);
-			var classname = element.className;
-			element.className = classname + ' focus';
-		}
-		function removeFocus(el){
-			var element = document.querySelector(el);
-			var ele = element.className.split(" ");
-			var classname = [];
-			ele.forEach(function(v){
-				if(v !== "focus"){
-					classname.push(v);
-				}
-			});
-			element.className = classname.join(" ");
-		}
-
-
-		var curr = 0;
-		var interval;
-		function slider(){
-			var nodelist = document.querySelectorAll('#con-slide a');
-			nodelist = Array.prototype.slice.call(nodelist);
-			var length = nodelist.length;
-			var tab_content = document.querySelectorAll('.tabpanel');
-			var tablist = document.querySelectorAll('.tablist span');
-			var i = length;
-			while (i--){
-				tab_content[i].style.display = 'none';
-				tablist[i].className = '';
-			}
-			nodelist.forEach(function(element, index){
-				element.onfocus = function(){
-					clearInterval(interval);
-					var i = length;
-					while (i--){
-						tab_content[i].style.display = 'none';
-						tablist[i].className = '';
-					}
-					tab_content[index].style.display = 'block';
-					tablist[index].className = 'focus';
-					curr = index;
-
-				};
-				if(index === 0){
-					element.onkeydown = function(e){
-						if(e.keyCode === 37){
-							lunbo();
-						}
-					}
-				}
-				if(index === length - 1){
-					element.onkeydown = function(e){
-						if(e.keyCode === 39){
-							lunbo();
-						}
-					}
-				}
-			});
-			tab_content[0].style.display = 'block';
-			tablist[0].className = 'active';
-		}
-		function lunbo(){
-			interval = setInterval(function(){
-				var nodelist = document.querySelectorAll('#con-slide a');
-				var length = nodelist.length;
-				if(curr >= length-1){
-					curr = 0;
-				}else{
-					curr++;
-				}
-				var index = curr;
-				var tab_content = document.querySelectorAll('.tabpanel');
-				var tablist = document.querySelectorAll('.tablist span');
-				var length = nodelist.length;
-				var i = length;
-
-				while (i--){
-					tab_content[i].style.display = 'none';
-					tablist[i].className = '';
-				}
-				tab_content[index].style.display = 'block';
-				tablist[index].className = 'active';
-			}, 3000);
-		}
-		lunbo();
-		slider();
-
 	</script>
 </body>
 </html>
