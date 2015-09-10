@@ -1,0 +1,453 @@
+html * {
+	margin: 0;
+	padding: 0;
+}
+body {
+	position: relative;
+	width: 1280px;
+	height: 720px;
+	background: url('../images/background.jpg') no-repeat;
+	font-family: SimHei;
+	overflow: hidden;
+}
+img {
+	border: none;
+}
+a {
+	outline: none;
+	text-decoration: none;
+}
+.clearfix::before ,.clearfix::after {
+	content: " ";
+	display: table;
+}
+.clearfix::after {
+	clear: both;
+}
+.hidden {
+	display: none;
+	visibility: hidden;
+}
+
+/* 角标样式 */
+.icon-new {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: inline-block;
+	width: 73px;
+	height: 73px;
+	background: url('../images/icon-new.png') no-repeat;
+}
+.icon-push {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: inline-block;
+	width: 73px;
+	height: 73px;
+	background: url('../images/icon-push.png') no-repeat;
+}
+
+.icon-top1, .icon-top2, .icon-top3 {
+	display: inline-block;
+	width: 56px;
+	height: 30px;
+}
+.icon-top1 {
+	background: url('../images/top1.png') no-repeat;
+}
+.icon-top2 {
+	background: url('../images/top2.png') no-repeat;
+}
+.icon-top3 {
+	background: url('../images/top3.png') no-repeat;
+}
+
+/* 角标样式 End*/
+
+/* 头部导航样式 */
+.header span {
+	position: absolute;
+	top: 0;
+	display: inline-block;
+	width: 154px;
+	height: 104px;
+}
+.header .recommend{
+	left: 205px;
+	background: url('../images/recommend.png') no-repeat;
+}
+.header .recommend.active {
+	background: url('../images/recommend-active.png') no-repeat;
+}
+.header .recommend.focus {
+	background: url('../images/recommend-focus.png') no-repeat;
+}
+
+.header .free{
+	left: 392px;
+	background: url('../images/free.png') no-repeat;
+}
+.header .free.active {
+	background: url('../images/free-active.png') no-repeat;
+}
+.header .free.focus {
+	background: url('../images/free-focus.png') no-repeat;
+}
+
+.header .sight{
+	left: 578px;
+	background: url('../images/sight.png') no-repeat;
+}
+.header .sight.active {
+	background: url('../images/sight-active.png') no-repeat;
+}
+.header .sight.focus {
+	background: url('../images/sight-focus.png') no-repeat;
+}
+
+.header .movie{
+	left: 764px;
+	background: url('../images/movie.png') no-repeat;
+}
+.header .movie.active {
+	background: url('../images/movie-active.png') no-repeat;
+}
+.header .movie.focus {
+	background: url('../images/movie-focus.png') no-repeat;
+}
+
+.header .premiere{
+	left: 948px;
+	background: url('../images/premiere.png') no-repeat;
+}
+/* 头部导航样式 End*/
+
+/* 内容左边推荐位样式 */
+.content {
+	position: absolute;
+	top: 116px;
+	left: 0;
+}
+.content .recommend-left {
+	display: block;
+	position: absolute;
+	top: 10px;
+	left: 92px;
+	width: 285px;
+	height: 420px;
+	text-align: center;
+	padding: 15px 10px;
+	/*transition: all .2s;*/
+}
+.content .recommend-left.focus{
+	width: 305px;
+	height: 450px;
+	padding: 0;
+}
+.content .recommend-left .title {
+	position: absolute;
+	left: 0;
+	bottom: 2px;
+	color: #ffffff;
+	font-size: 28px;
+	height: 42px;
+	width: 100%;
+	line-height: 42px;
+	text-align: center;
+	background: rgba(0, 0, 0, 0.6);
+	overflow: hidden;
+}
+.content .recommend-left.focus .title{
+	font-size: 30px;
+	height: 45px;
+	line-height: 45px;
+}
+.content .recommend-left img {
+	width: 285px;
+	height: 420px;
+}
+.content .recommend-left.focus img {
+	width: 305px;
+	height: 450px;
+}
+.content .recommend-left.focus:before {
+	position: absolute;
+	top: -15px;
+	left: -15px;
+	content: " ";
+	width: 335px;
+	height: 480px;
+	background: url('../images/border01.png') no-repeat;
+	z-index: 9;
+}
+/* 内容左边推荐位样式 End */
+
+/* 图片轮播样式 */
+.recommend-slide {
+	position: absolute;
+	top: 25px;
+	left: 402px;
+	width: 476px;
+	height: 418px;
+	border: 1px solid #313131;
+	overflow: hidden;
+}
+.recommend-slide .tab_content {
+	height: 100%;
+	list-style: none;
+}
+.recommend-slide .tab_content .tabpanel {
+	height: 100%;
+}
+.recommend-slide .tab_content .tabpanel img {
+	width: 478px;
+	height: 265px;
+}
+.recommend-slide .tab_content .tabpanel .tabdetail {
+	margin-top: 35px;
+	color: #ffffff;
+	padding: 10px;
+}
+.recommend-slide .tab_content .tabpanel .tabdetail h2 {
+	font-size: 28px;
+	height: 32px;
+	overflow: hidden;
+	margin-bottom: 10px;
+}
+.recommend-slide .tab_content .tabpanel .tabdetail p {
+	line-height: 30px;
+	font-size: 22px;
+	color: #818181;
+}
+.recommend-slide .tablist {
+	position: absolute;
+	top: 280px;
+	width: 100%;
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
+	z-index: 9;
+}
+.recommend-slide .tablist span {
+	margin: 0 2px;
+	display: inline-block;
+	width: 23px;
+	height: 20px;
+	background: #535353;
+	vertical-align: middle;
+}
+.recommend-slide .tablist .active{
+	background: #004b82;
+}
+.recommend-slide .tablist .focus {
+	/*transform: scale(1.4);*/
+	width: 30px;
+	height: 26px;
+	background: #0068b7;
+}
+/* 图片轮播样式 End */
+
+
+
+/* 排行栏目样式 */
+.recommend-list {
+	position: absolute;
+	top: 25px;
+	left: 885px;
+}
+.recommend-list .item {
+	position: relative;
+	width: 283px;
+	height: 126px;
+	margin: 0 0 18px 10px;
+	border: 1px solid #313131;
+}
+.recommend-list .item.focus {
+	width: 305px;
+	height: 140px;
+	margin: -5px 0 9px 0;
+}
+.recommend-list .item.focus:before {
+	position: absolute;
+	top: -15px;
+	left: -15px;
+	content: " ";
+	width: 335px;
+	height: 170px;
+	background: url('../images/border02.png') no-repeat;
+	z-index: 9;
+}
+.recommend-list .item img {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 86px;
+	height: 126px;
+}
+.recommend-list .item.focus img {
+	width: 90px;
+	height: 140px;
+}
+.recommend-list .item h2 {
+	width: 180px;
+	height: 64px;
+	color: #ffffff;
+	font-size: 28px;
+	margin: 18px 0 0 12px;
+	overflow: hidden;
+}
+.recommend-list .item.focus h2 {
+	width: 192px;
+	height: 68px;
+	font-size: 30px;
+	margin: 20px 0 0 12px;
+}
+.recommend-list .item .heat{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 30px;
+	line-height: 30px;
+}
+.recommend-list .item.focus .heat {
+	height: 32px;
+	line-height: 32px;
+}
+.recommend-list .item .heat span {
+	vertical-align: top;
+	font-size: 20px;
+	color: #969696;
+	font-weight: bold;
+}
+.recommend-list .item.focus .heat span {
+	font-size: 22px;
+}
+/*.recommend-list .item .heat .icon-top1 {
+	display: inline-block;
+	width: 56px;
+	height: 30px;
+	line-height: 30px;
+	color: #ffffff;
+	font-size: 22px;
+	font-weight: bold;
+	text-align: center;
+	background: red;
+}
+.recommend-list .item.focus .heat .icon-top1 {
+	width: 60px;
+	height: 32px;
+	line-height: 32px;
+	font-size: 24px;
+}*/
+/* 排行栏目样式 End */
+
+
+/* 底部导航样式 */
+.footer {
+	position: absolute;
+	left: 0;
+	bottom: 24px;
+	width: 100%;
+	text-align: center;
+	font-size: 0;
+}
+.footer span {
+	position: relative;
+	display: inline-block;
+	width: 124px;
+	height: 84px;
+}
+.footer .home {
+	background: url('../images/home.png') no-repeat bottom;
+}
+.footer .home.focus {
+	background: url('../images/home-focus.png') no-repeat top;
+}
+.footer .back {
+	background: url('../images/back.png') no-repeat bottom;
+}
+.footer .back.focus {
+	background: url('../images/back-focus.png') no-repeat top;
+}
+.footer .search {
+	background: url('../images/search.png') no-repeat bottom;
+}
+.footer .search.focus {
+	background: url('../images/search-focus.png') no-repeat top;
+}
+.footer .my {
+	background: url('../images/my.png') no-repeat bottom;
+}
+.footer .my.focus {
+	background: url('../images/my-focus.png') no-repeat top;
+}
+.footer .index {
+	background: url('../images/index.png') no-repeat bottom;
+}
+.footer .index.focus {
+	background: url('../images/index-focus.png') no-repeat top;
+}
+/* 底部导航样式 End */
+
+
+
+.controller a {
+	font-size: 0;
+}
+.controller-nav {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.controller-nav a {
+	display: inline-block;
+	width: 200px;
+}
+.controller-content {
+	position: absolute;
+	top: 100px;
+	left: 0;
+}
+.controller-content .con-left a {
+	position: absolute;
+	left: 0;
+	width: 200px;
+	height: 54px;
+	display: inline-block;
+}
+.controller-content .con-slide {
+	position: absolute;
+	left: 200px;
+	width: 400px;
+}
+.controller-content .con-slide a {
+	display: inline-block;
+	height: 54px;
+}
+.controller-content .con-slide a:first-child {
+	width: 95%;
+}
+.controller-content .con-list {
+	position: absolute;
+	left: 600px;
+	width: 200px;
+}
+.controller-content .con-list a{
+	display: inline-block;
+	width: 200px;
+}
+.controller-footer {
+	position: absolute;
+	top: 300px;
+	left: 0;
+	/*width: 800px;*/
+}
+.controller-footer a {
+	display: inline-block;
+	width: 132px;
+}
+.controller-footer a:last-child, .controller-footer a:first-child {
+	width: 200px;
+}
