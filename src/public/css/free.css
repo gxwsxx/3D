@@ -60,6 +60,7 @@
 	list-style: none;
 }
 .free-box .free-list a {
+	float: left;
 	position: relative;
 	display: inline-block;
 	margin: 4px;
