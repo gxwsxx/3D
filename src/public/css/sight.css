@@ -1,0 +1,47 @@
+.sight-box {
+	font-size: 0;
+	position: absolute;
+	top: 195px;
+	left: 86px;
+	width: 1106px;
+}
+.sight-box a {
+	position: relative;
+	display: inline-block;
+	margin: 0 13px;
+	width: 250px;
+	height: 370px;
+}
+.sight-box a img {
+	width: 250px;
+	height: 370px;
+}
+.sight-box a:focus:before {
+	position: absolute;
+	top: -30px;
+	left: -25px;
+	content: "";
+	width: 300px;
+	height: 430px;
+	z-index: 9;
+	background: url('../images/sight-border.png') no-repeat;
+}
+.sight-box a:focus img {
+	position: absolute;
+	top: -15px;
+	left: -10px;
+	width: 270px;
+	height: 400px;
+}
+
+
+.controller-nav, .controller-footer {
+	width: 1106px;
+	left: 99px;
+}
+.controller-nav a {
+	width: 25%;
+}
+.controller-footer a {
+	width: 20%;
+}
