@@ -158,13 +158,14 @@ a {
 
 
 /* 控制层 a 标签样式 */
-.controller a {
+.controller {
 	font-size: 0;
 }
 .controller-nav {
 	position: absolute;
 	top: 0;
 	left: 0;
+	width: 100%;
 }
 .controller-nav a {
 	display: inline-block;
@@ -175,7 +176,7 @@ a {
 	position: absolute;
 	top: 300px;
 	left: 0;
-	/*width: 800px;*/
+	width: 100%;
 }
 .controller-footer a {
 	display: inline-block;

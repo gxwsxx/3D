@@ -5,47 +5,20 @@
 	<title>3D-消息列表</title>
 	<link rel="stylesheet" href="../public/css/style.css" />
 	<link rel="stylesheet" href="../public/css/message.css" />
+	<script src="../public/js/template.js"></script>
 </head>
 <body>
 	<div id="message-box" class="message-box">
 		<h1 class="title">消息</h1>
-		<ul class="message-list">
-			<li>
+		<ul id="message-list" class="message-list">
+			<!-- <li>
 				<a href="">
 					<h2>等风来等风来等风来</h2>
 					<span class="icon-list-new"></span>
 					<p>大闹天宫后四百年多年，齐天大圣成了一个传说在山妖横行的长安城，孤儿江流儿（林子杰 配音）与行脚僧法明（吴文伦 配音）相依为命，盲打误撞地解除了孙悟空的封印。大闹天宫后四百年多年，齐天大圣成了一个传说在山妖横行的长安城，孤儿江流儿（林子杰 配音）与行脚僧法明（吴文伦 配音）相依为命，盲打误撞地解除了孙悟空的封印。</p>
 					<hr>
 				</a>
-			</li>
-			<li>
-				<a href="">
-					<h2>等风来</h2>
-					<p>大闹天宫后四百年多年，齐天大圣成了一个传说在山妖横行的长安城，孤儿江流儿（林子杰 配音）与行脚僧法明（吴文伦 配音）相依为命，盲打误撞地解除了孙悟空的封印。</p>
-					<hr>
-				</a>
-			</li>
-			<li>
-				<a href="">
-					<h2>等风来</h2>
-					<p>大闹天宫后四百年多年，齐天大圣成了一个传说在山妖横行的长安城，孤儿江流儿（林子杰 配音）与行脚僧法明（吴文伦 配音）相依为命，盲打误撞地解除了孙悟空的封印。</p>
-					<hr>
-				</a>
-			</li>
-			<li>
-				<a href="">
-					<h2>等风来</h2>
-					<p>大闹天宫后四百年多年，齐天大圣成了一个传说在山妖横行的长安城，孤儿江流儿（林子杰 配音）与行脚僧法明（吴文伦 配音）相依为命，盲打误撞地解除了孙悟空的封印。</p>
-					<hr>
-				</a>
-			</li>
-			<li>
-				<a href="">
-					<h2>等风来</h2>
-					<p>大闹天宫后四百年多年，齐天大圣成了一个传说在山妖横行的长安城，孤儿江流儿（林子杰 配音）与行脚僧法明（吴文伦 配音）相依为命，盲打误撞地解除了孙悟空的封印。</p>
-					<hr>
-				</a>
-			</li>
+			</li> -->
 		</ul>
 	</div>
 	<div id="footer" class="footer">
@@ -64,6 +37,62 @@
 			<a href="#" onfocus="addFocus('#footer4')" onblur="removeFocus('#footer4')"><img src="../public/images/dot.gif" /></a>
 		</div>
 	</div>
+
 	<script src="../public/js/common.js"></script>
+	<script id="messageTpl" type="text/html">
+		{{each list as value i}}
+			{{if i < 5}}
+				<li>
+					<a href="{{value.url}}">
+						<h2>{{value.title}}</h2>
+						{{if value.isNew}}
+							<span class="icon-list-new"></span>
+						{{/if}}
+						<p>{{#value.message}}</p>
+						<hr>
+					</a>
+				</li>
+			{{/if}}
+		{{/each}}
+	</script>
+	<script>
+		var data = {
+		    "list": [
+		        {
+		            title: "狂野飚车8",
+		            message: "大闹天宫后四百年多年，齐天大圣成了一个传说在山妖横行的长安城，孤儿江流儿（林子杰 配音）与行脚僧法明（吴文伦 配音）相依为命，盲打误撞地解除了孙悟空的封印。",
+		            url: "http://www.qq.com",
+		            isNew: true
+		        },{
+		            title: "等风来",
+		            message: "大闹天宫后四百年多年，齐天大圣成了一个传说在山妖横行的长安城，孤儿江流儿（林子杰 配音）与行脚僧法明（吴文伦 配音）相依为命，盲打误撞地解除了孙悟空的封印。",
+		            url: "http://www.qq.com",
+		            isNew: false
+		        },{
+		            title: "等风来",
+		            message: "大闹天宫后四百年多年，齐天大圣成了一个传说在山妖横行的长安城，孤儿江流儿（林子杰 配音）与行脚僧法明（吴文伦 配音）相依为命，盲打误撞地解除了孙悟空的封印。",
+		            url: "http://www.qq.com",
+		            isNew: false
+		        },{
+		            title: "等风来",
+		            message: "大闹天宫后四百年多年，齐天大圣成了一个传说在山妖横行的长安城，孤儿江流儿（林子杰 配音）与行脚僧法明（吴文伦 配音）相依为命，盲打误撞地解除了孙悟空的封印。",
+		            url: "http://www.qq.com",
+		            isNew: false
+		        },{
+		            title: "等风来",
+		            message: "大闹天宫后四百年多年，齐天大圣成了一个传说在山妖横行的长安城，孤儿江流儿（林子杰 配音）与行脚僧法明（吴文伦 配音）相依为命，盲打误撞地解除了孙悟空的封印。",
+		            url: "http://www.qq.com",
+		            isNew: false
+		        },{
+		            title: "等风来",
+		            message: "大闹天宫后四百年多年，齐天大圣成了一个传说在山妖横行的长安城，孤儿江流儿（林子杰 配音）与行脚僧法明（吴文伦 配音）相依为命，盲打误撞地解除了孙悟空的封印。",
+		            url: "http://www.qq.com",
+		            isNew: false
+		        }
+		    ]
+		}
+		var html = template('messageTpl', data);
+		document.getElementById('message-list').innerHTML = html;
+	</script>
 </body>
 </html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3D-消息列表</title>
+	<link rel="stylesheet" href="../public/css/style.css" />
+	<link rel="stylesheet" href="../public/css/free.css" />
+	<script src="../public/js/template.js"></script>
+</head>
+<body>
+	<div id="header" class="header">
+		<span id="nav0" class="recommend active"></span>
+		<span id="nav1" class="free"></span>
+		<span id="nav2" class="sight"></span>
+		<span id="nav3" class="movie"></span>
+		<span class="premiere hidden"></span>
+	</div>
+	<div id="free-box" class="free-box">
+		<div class="prev"></div>
+		<div class="next"></div>
+		<div class="box-detail">
+			<img src="../public/images/free-default.jpg" >
+			<h1 class="title">大圣归来</h1>
+			<p>大闹天宫后四百年多年，齐天大圣成了一个传说在山妖横行的长安城，孤儿江流儿（林子杰配音）与行脚僧法明（吴文伦配音）相依为命，小小少年常常神往大闹天宫的孙悟空。有一天，山妖（吴迪配音）来劫掠童男童女，江流儿救了一个小女孩，惹得山妖追杀，盲打误撞地解除了孙悟空的封印。</p>
+		</div>
+		<div class="free-list">
+			<a href="">
+				<div class="icon-play"></div>
+				<img src="../public/images/free-default.jpg">
+			</a>
+			<a href="">
+				<div class="icon-play"></div>
+				<img src="../public/images/free-default.jpg">
+			</a>
+			<a href="">
+				<div class="icon-play"></div>
+				<img src="../public/images/free-default.jpg">
+			</a>
+			<a href="">
+				<div class="icon-play"></div>
+				<img src="../public/images/free-default.jpg">
+			</a>
+			<a href="">
+				<div class="icon-play"></div>
+				<img src="../public/images/free-default.jpg">
+			</a>
+		</div>
+	</div>
+	<div id="footer" class="footer">
+		<span id="footer0" class="home"></span>
+		<span id="footer1" class="back"></span>
+		<span id="footer2" class="search"></span>
+		<span id="footer3" class="my"></span>
+		<span id="footer4" class="index"></span>
+	</div>
+
+	<div id="controller" class="controller">
+		<div class="controller-nav">
+			<a href="#" onfocus="addFocus('#nav0')" onblur="removeFocus('#nav0')"><img src="../public/images/dot.gif" /></a>
+			<a href="#" onfocus="addFocus('#nav1')" onblur="removeFocus('#nav1')"><img src="../public/images/dot.gif" /></a>
+			<a href="#" onfocus="addFocus('#nav2')" onblur="removeFocus('#nav2')"><img src="../public/images/dot.gif" /></a>
+			<a href="#" onfocus="addFocus('#nav3')" onblur="removeFocus('#nav3')"><img src="../public/images/dot.gif" /></a>
+		</div>
+		<div class="controller-footer">
+			<a href="#" onfocus="addFocus('#footer0')" onblur="removeFocus('#footer0')"><img src="../public/images/dot.gif" /></a>
+			<a href="#" onfocus="addFocus('#footer1')" onblur="removeFocus('#footer1')"><img src="../public/images/dot.gif" /></a>
+			<a href="#" onfocus="addFocus('#footer2')" onblur="removeFocus('#footer2')"><img src="../public/images/dot.gif" /></a>
+			<a href="#" onfocus="addFocus('#footer3')" onblur="removeFocus('#footer3')"><img src="../public/images/dot.gif" /></a>
+			<a href="#" onfocus="addFocus('#footer4')" onblur="removeFocus('#footer4')"><img src="../public/images/dot.gif" /></a>
+		</div>
+	</div>
+
+	<script src="../public/js/common.js"></script>
+	<script id="messageTpl" type="text/html">
+
+	</script>
+	<script>
+		var data = {
+		    "list": [
+
+		    ]
+		}
+		// var html = template('messageTpl', data);
+		// document.getElementById('message-list').innerHTML = html;
+	</script>
+</body>
+</html>
