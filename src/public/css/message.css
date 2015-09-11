@@ -1,12 +1,3 @@
-.icon-list-new {
-	position: absolute;
-	top: 5px;
-	display: inline-block;
-	width: 37px;
-	height: 17px;
-	background: url('../images/new.png') no-repeat;
-}
-
 .message-box {
 	position: absolute;
 	top: 50px;
@@ -41,7 +32,6 @@
 	font-weight: normal;
 	width: 694px;
 	height: 30px;
-	line-height: 30px;
 	overflow: hidden;
 }
 .message-box .detail hr {
@@ -107,22 +97,18 @@
 }
 .message-box .message-list li {
 	position: relative;
-	/*height: 70px;*/
 }
 .message-box .message-list li hr {
 	border: 0;
 	height: 1px;
 	background: #b4b4b4;
 }
+.message-box .message-list li a {
+	display: inline-block;
+	width: 100%;
+}
 .message-box .message-list li a:focus hr {
 	display: none;
-}
-.message-box .message-list h2 {
-	display: inline-block;
-	color: #ffffff;
-	font-size: 30px;
-	line-height: 70px;
-	padding-left: 10px;
 }
 .message-box .message-list li a:focus {
 	display: inline-block;
@@ -139,18 +125,40 @@
 	z-index: 9;
 	background: url('../images/message-list-border.png') no-repeat;
 }
+.message-box .message-list h2 {
+	display: inline-block;
+	color: #ffffff;
+	font-size: 30px;
+	line-height: 69px;
+	padding-left: 10px;
+	margin-right: 5px;
+}
 .message-box .message-list li a:focus h2 {
-	line-height: 42px;
+	line-height: 60px;
+	/*padding-top: 10px;*/
 }
 .message-box .message-list p {
 	display: none;
-	padding-left: 10px;
+	padding: 0 10px;
 	font-size: 24px;
 	line-height: 30px;
 	color: #969696;
 	text-indent: 48px;
-	height: 90px;
+	height: 60px;
+	overflow: hidden;
 }
 .message-box .message-list li a:focus p {
 	display: block;
+}
+
+.message-box .message-list li a .icon-list-new {
+	position: absolute;
+	top: 16px;
+	display: inline-block;
+	width: 37px;
+	height: 17px;
+	background: url('../images/new.png') no-repeat;
+}
+.message-box .message-list li a:focus .icon-list-new {
+	top: 10px;
 }
