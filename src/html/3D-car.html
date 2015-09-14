@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3D 汽车</title>
+	<link rel="stylesheet" href="../public/css/style.css" />
+	<link rel="stylesheet" href="../public/css/car.css" />
+	<script src="../public/js/template.js"></script>
+</head>
+<body>
+	<div id="header" class="header">
+		<span id="nav0" class="recommend"></span>
+		<span id="nav1" class="free"></span>
+		<span id="nav2" class="sight active"></span>
+		<span id="nav3" class="movie"></span>
+		<span class="premiere hidden"></span>
+	</div>
+	<div id="car-box" class="car-box">
+		<div class="prev"></div>
+		<div class="next"></div>
+		<img class="car-bg" src="../uploads/car-bg.jpg" />
+		<div id="car-list" class="car-list">
+			<a href="">
+				<img src="../public/images/car-default.jpg">
+				<div class="title">顶级法拉利</div>
+			</a>
+		</div>
+		
+	</div>
+	<div id="footer" class="footer">
+		<span id="footer0" class="home"></span>
+		<span id="footer1" class="back"></span>
+		<span id="footer2" class="search"></span>
+		<span id="footer3" class="my"></span>
+		<span id="footer4" class="index"></span>
+	</div>
+
+	<div id="controller" class="controller">
+		<div class="controller-nav">
+			<a href="#" onfocus="addFocus('#nav0')" onblur="removeFocus('#nav0')"><img src="../public/images/dot.gif" /></a>
+			<a href="#" onfocus="addFocus('#nav1')" onblur="removeFocus('#nav1')"><img src="../public/images/dot.gif" /></a>
+			<a href="#" onfocus="addFocus('#nav2')" onblur="removeFocus('#nav2')"><img src="../public/images/dot.gif" /></a>
+			<a href="#" onfocus="addFocus('#nav3')" onblur="removeFocus('#nav3')"><img src="../public/images/dot.gif" /></a>
+		</div>
+		<div class="controller-footer">
+			<a href="#" onfocus="addFocus('#footer0')" onblur="removeFocus('#footer0')"><img src="../public/images/dot.gif" /></a>
+			<a href="#" onfocus="addFocus('#footer1')" onblur="removeFocus('#footer1')"><img src="../public/images/dot.gif" /></a>
+			<a href="#" onfocus="addFocus('#footer2')" onblur="removeFocus('#footer2')"><img src="../public/images/dot.gif" /></a>
+			<a href="#" onfocus="addFocus('#footer3')" onblur="removeFocus('#footer3')"><img src="../public/images/dot.gif" /></a>
+			<a href="#" onfocus="addFocus('#footer4')" onblur="removeFocus('#footer4')"><img src="../public/images/dot.gif" /></a>
+		</div>
+	</div>
+
+	<script src="../public/js/common.js"></script>
+	<script id="carTpl" type="text/html">
+		{{each list as value index}}
+			<a href="{{value.url}}">
+				<img src="{{value.img | defaultImg}}">
+				<div class="title">{{value.title}}</div>
+			</a>
+		{{/each}}
+	</script>
+	<script>
+		var page,total;
+
+		template.helper('defaultImg', function(img, defimg){
+			var defimg = defimg;
+			if(!defimg) {
+				defimg = '../public/images/car-default.jpg';
+			}
+			if(!img){
+				img = defimg;
+			}
+			return img;
+		});
+		var lists = [{	
+		    		title: "顶级法拉利跑车1",
+		    		img: "../uploads/img3.jpg",
+		    		url: "###"
+		    	},{	
+		    		title: "顶级法拉利2",
+		    		img: "",
+		    		url: "###"
+		    	},{	
+		    		title: "顶级法拉利3",
+		    		img: "",
+		    		url: "###"
+		    	},{	
+		    		title: "顶级法拉利4",
+		    		img: "",
+		    		url: "###"
+		    	},{	
+		    		title: "顶级法拉利5",
+		    		img: "",
+		    		url: "###"
+		    	},{	
+		    		title: "顶级法拉利6",
+		    		img: "",
+		    		url: "###"
+		    	},{	
+		    		title: "顶级法拉利7",
+		    		img: "",
+		    		url: "###"
+		    	},{	
+		    		title: "顶级法拉利8",
+		    		img: "",
+		    		url: "###"
+		    	},{	
+		    		title: "顶级法拉利9",
+		    		img: "",
+		    		url: "###"
+		    	},{	
+		    		title: "顶级法拉利10",
+		    		img: "",
+		    		url: "###"
+		    	},{	
+		    		title: "顶级法拉利11",
+		    		img: "",
+		    		url: "###"
+		    	},{	
+		    		title: "顶级法拉利12",
+		    		img: "",
+		    		url: "###"
+		    	}];
+		var curr = 1;
+		var total = 4;
+		var pages = 3;
+		function loadData(start){
+			if(curr === 1){
+				start = 0;
+			}else{
+				console.log(curr);
+				start = (curr - 1) * total;
+				console.log(start);
+			}
+			var data = {
+			    "list": lists.slice(start, start + total)
+			}
+			var html = template('carTpl', data);
+			document.getElementById('car-list').innerHTML = html;
+
+			var nodelist = document.querySelectorAll('#car-list a');
+				nodelist = Array.prototype.slice.call(nodelist);
+
+			nodelist.forEach(function(element, index){
+				if(index % 4 === 3){
+					element.onkeydown = function(e){
+						e = e || window.event;
+						if(e.keyCode === 39){
+							curr = curr++ >= pages ? pages : curr++;
+							loadData();
+						}
+					}
+				}
+				if(index % 4 === 0){
+					element.onkeydown = function(e){
+						e = e || window.event;
+						if(e.keyCode === 37){
+							curr = curr-- <= 1 ? 1 : curr--;
+							loadData();
+						}
+					}
+				}
+			});
+		}
+		loadData();
+	</script>
+</body>
+</html>

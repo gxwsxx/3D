@@ -1,0 +1,83 @@
+.variety-box {
+	position: absolute;
+	top: 146px;
+	left: 100px;
+	width: 1130px;
+}
+.variety-box .prev, .variety-box .next {
+	position: absolute;
+	top: 170px;
+	width: 25px;
+	height: 80px;
+}
+.variety-box .prev {
+	left: 0;
+	background: url('../images/prev.png') no-repeat;
+}
+.variety-box .next {
+	right: 0;
+	background: url('../images/next.png') no-repeat;
+}
+.variety-box .variety-big {
+	width: 590px;
+	height: 420px;
+}
+.variety-box .variety-content {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 480px;
+}
+
+.variety-box .variety-list {
+	position: absolute;
+	top: -9px;
+	left: 41px;
+	width: 396px;
+}
+.variety-box .variety-list a {
+	position: relative;
+	float: left;
+	display: inline-block;
+	width: 180px;
+	height: 128px;
+	margin: 9px;
+}
+.variety-box .variety-list a:focus:before {
+	position: absolute;
+	display: inline-block;
+	content: "";
+	top: -25px;
+	left: -23px;
+	width: 230px;
+	height: 174px;
+	z-index: 9;
+	background: url('../images/variety-border.png') no-repeat;
+}
+.variety-box .variety-list a img {
+	width: 180px;
+	height: 128px;
+}
+.variety-box .variety-list a:focus img {
+	position: absolute;
+	top: -10px;
+	left: -8px;
+	width: 200px;
+	height: 144px;
+}
+
+
+
+.controller-nav, .controller-footer {
+	width: 378px;
+	left: 800px;
+}
+.controller-nav a {
+	width: 25%;
+}
+.controller-footer a {
+	width: 20%;
+}
+.controller-footer a:last-child, .controller-footer a:first-child {
+	width: 20%;
+}

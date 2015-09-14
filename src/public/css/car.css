@@ -1,0 +1,95 @@
+.car-box {
+	position: absolute;
+	top: 146px;
+	left: 50px;
+	width: 1180px;
+}
+.car-box .prev, .car-box .next {
+	position: absolute;
+	top: 290px;
+	width: 25px;
+	height: 80px;
+}
+.car-box .prev {
+	left: 0;
+	background: url('../images/prev.png') no-repeat;
+}
+.car-box .next {
+	right: 0;
+	background: url('../images/next.png') no-repeat;
+}
+.car-box .car-bg {
+	position: absolute;
+	top: 0;
+	left: 50px;
+	z-index: -1;
+}
+.car-box .car-list {
+	position: absolute;
+	top: 238px;
+	left: 38px;
+	width: 1106px;
+}
+.car-box .car-list a {
+	position: relative;
+	float: left;
+	display: inline-block;
+	margin: 10px 13px;
+	width: 250px;
+	height: 170px;
+}
+.car-box .car-list a:focus {
+	margin: 0 13px;
+}
+.car-box .car-list a:focus:before {
+	position: absolute;
+	content: "";
+	top: -15px;
+	left: -20px;
+	width: 300px;
+	height: 220px;
+	z-index: 9;
+	background: url('../images/car-border.png') no-repeat;
+}
+.car-box .car-list a img {
+	width: 250px;
+	height: 170px;
+}
+.car-box .car-list a:focus img{
+	position: absolute;
+	left: -10px;
+	width: 270px;
+	height: 190px;
+}
+.car-box .car-list a .title {
+	position: absolute;
+	bottom: 0;
+	text-align: center;
+	color: #ffffff;
+	font-size: 28px;
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	background: rgba(0,0,0,.6);
+	overflow: hidden;
+}
+.car-box .car-list a:focus .title {
+	left: -10px;
+	bottom: -20px;
+	width: 270px;
+	font-size: 30px;
+	height: 44px;
+	line-height: 44px;
+}
+
+
+.controller-nav, .controller-footer {
+	width: 1080px;
+	left: 100px;
+}
+.controller-nav a {
+	width: 25%;
+}
+.controller-footer a {
+	width: 20%;
+}
