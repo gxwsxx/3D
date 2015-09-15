@@ -1,0 +1,99 @@
+.line {
+	display: block;
+	width: 100%;
+	height: 1px;
+	background: #646464;
+}
+.detail-box {
+	position: absolute;
+	top: 146px;
+	left: 100px;
+	width: 1080px;
+	height: 420px;
+}
+.detail-box .detail-big {
+	position: relative;
+	width: 285px;
+	height: 420px;
+}
+.detail-box .detail-big img {
+	width: 285px;
+	height: 420px;
+}
+.detail-box .detail-inner {
+	position: absolute;
+	top: 0;
+	left: 322px;
+	width: 746px;
+	height: 420px;
+}
+.detail-box .detail-inner h1 {
+	font-size: 30px;
+	font-weight: normal;
+	color: #ffffff;
+	margin-bottom: 10px;
+}
+.detail-box .detail-inner .item {
+	font-size: 22px;
+	color: #969696;
+	height: 30px;
+	line-height: 30px;
+	overflow: hidden;
+}
+.detail-box .detail-inner .item a {
+	font-size: 22px;
+	color: #969696;
+}
+.detail-box .detail-inner .item a:focus {
+	color: #0068b7;
+}
+.detail-box .detail-inner .descript {
+	margin-top: 10px;
+	font-size: 22px;
+	color: #969696;
+	height: 150px;
+	line-height: 30px;
+	overflow: hidden;
+}
+.detail-box .detail-inner .btn-play, .detail-box .detail-inner .btn-shoucang, .detail-box .detail-inner .btn-ysc {
+	margin-top: 48px;
+}
+.detail-box .detail-inner .btn-play {
+	display: inline-block;
+	width: 240px;
+	height: 95px;
+	background: url('../images/btn-play.png') no-repeat;
+}
+.detail-box .detail-inner .btn-play:focus {
+	background: url('../images/btn-play-focus.png') no-repeat;
+}
+.detail-box .detail-inner .btn-shoucang {
+	display: inline-block;
+	width: 240px;
+	height: 95px;
+	background: url('../images/btn-shoucang.png') no-repeat;
+}
+.detail-box .detail-inner .btn-shoucang:focus {
+	background: url('../images/btn-shoucang-focus.png') no-repeat;
+}
+.detail-box .detail-inner .btn-ysc {
+	display: inline-block;
+	width: 240px;
+	height: 95px;
+	background: url('../images/btn-ysc.png') no-repeat;
+}
+.detail-box .detail-inner .btn-ysc:focus {
+	background: url('../images/btn-ysc-focus.png') no-repeat;
+}
+
+
+.controller-nav, .controller-footer {
+	width: 480px;
+	left: 420px;
+}
+.controller-nav a {
+	width: 25%;
+}
+.controller-footer a {
+	width: 20%;
+}

@@ -1,0 +1,64 @@
+.search-box {
+	position: absolute;
+	top: 50px;
+	left: 100px;
+	width: 1080px;
+	height: 515px;
+}
+.search-box .title {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: inline-block;
+	font-size: 36px;
+	color: #ffffff;
+	font-weight: normal;
+	height: 50px;
+	line-height: 50px;
+}
+.search-box .search-input {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 50px;
+	text-align: center;
+}
+.search-box .search-input .input {
+	color: #969696;
+	margin: 20px auto;
+	width: 340px;
+	font-size: 22px;
+	line-height: 24px;
+	border-bottom: 1px solid #b4b4b4;
+}
+
+.search-box .tag-list {
+	position: absolute;
+	top: 112px;
+	left: 85px;
+	width: 920px;
+	height: 92px;
+	padding: 10px;
+	overflow: hidden;
+}
+.search-box .tag-list a {
+	position: relative;
+	display: inline-block;
+	float: left;
+	margin: 3px 2px;
+	font-size: 28px;
+	color: #c8c8c8;
+	width: 88px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+}
+.search-box .tag-list a:focus:before {
+	position: absolute;
+	content: "";
+	top: -15px;
+	left: -15px;
+	width: 118px;
+	height: 70px;
+	background: url('../images/search-tag-border.png') no-repeat;
+}
