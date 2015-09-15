@@ -1,0 +1,97 @@
+.movie-box {
+	position: absolute;
+	top: 146px;
+	left: 50px;
+	width: 1180px;
+	height: 428px;
+	background: url('../images/movie-bg.png') no-repeat 50px; 
+}
+.movie-box .prev, .movie-box .next {
+	position: absolute;
+	top: 165px;
+	width: 25px;
+	height: 80px;
+}
+.movie-box .prev {
+	left: 0;
+	background: url('../images/prev.png') no-repeat;
+}
+.movie-box .next {
+	right: 0;
+	background: url('../images/next.png') no-repeat;
+}
+.movie-box .movie-list {
+	position: absolute;
+	top: 65px;
+	left: 34px;
+	width: 1210px;
+}
+.movie-box .movie-list a {
+	position: relative;
+	display: inline-block;
+	float: left;
+	margin: 0 16px;
+	width: 190px;
+	height: 280px;
+}
+.movie-box .movie-list a:focus:before {
+	position: absolute;
+	content: "";
+	top: -30px;
+	left: -25px;
+	width: 240px;
+	height: 340px;
+	z-index: 9;
+	background: url('../images/documentary-border.png') no-repeat;
+}
+.movie-box .movie-list a img {
+	width: 190px;
+	height: 280px;
+}
+.movie-box .movie-list a:focus img {
+	position: absolute;
+	top: -15px;
+	left: -10px;
+	width: 210px;
+	height: 310px;
+}
+.movie-box .movie-list a:focus .icon-new {
+	position: absolute;
+	top: -15px;
+	left: -10px;
+	z-index: 8;
+}
+.movie-box .movie-list a .title {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	font-size: 28px;
+	color: #ffffff;
+	height: 45px;
+	line-height: 45px;
+	text-align: center;
+	background: rgba(0,0,0,.6);
+}
+.movie-box .movie-list a:focus .title {
+	position: absolute;
+	left: -10px;
+	bottom: -15px;
+	font-size: 30px;
+	width: 210px;
+	height: 48px;
+	line-height: 48px;
+}
+
+.controller-nav, .controller-footer {
+	width: 1080px;
+	left: 100px;
+}
+.controller-nav a {
+	width: 25%;
+}
+.controller-footer a {
+	width: 20%;
+}
+.controller-footer a:last-child, .controller-footer a:first-child {
+	width: 20%;
+}
