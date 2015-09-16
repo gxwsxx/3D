@@ -97,3 +97,6 @@
 .controller-footer a {
 	width: 20%;
 }
+.controller-footer a:last-child, .controller-footer a:first-child {
+	width: 20%;
+}

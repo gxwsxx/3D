@@ -1,0 +1,91 @@
+.playhistory-box {
+	position: absolute;
+	top: 50px;
+	left: 100px;
+	width: 1180px;
+}
+.playhistory-box .header-title {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: inline-block;
+	font-size: 36px;
+	color: #ffffff;
+	font-weight: normal;
+	height: 50px;
+	line-height: 50px;
+}
+.playhistory-box .playhistory-content {
+	position: absolute;
+	top: 140px;
+	left: -50px;
+	width: 1180px;
+}
+.playhistory-box .playhistory-content .prev, .playhistory-box .playhistory-content .next {
+	position: absolute;
+	top: 70px;
+	width: 25px;
+	height: 80px;
+}
+.playhistory-box .playhistory-content .prev {
+	left: 0;
+	background: url('../images/prev.png') no-repeat;
+}
+.playhistory-box .playhistory-content .next {
+	right: 0;
+	background: url('../images/next.png') no-repeat;
+}
+
+.playhistory-box .timeline {
+	margin: 30px auto 0 auto;
+	width: 930px;
+}
+.playhistory-box .timeline .timeline-list {
+	position: relative;
+	float: left;
+	width: 155px;
+	text-align: center;
+}
+.playhistory-box .timeline .timeline-list .icon-triangle {
+	display: inline-block;
+	width: 20px;
+	height: 10px;
+	background: url('../images/triangle-gray.png') no-repeat;
+}
+.playhistory-box .timeline .timeline-list.focus .icon-triangle {
+	background: url('../images/triangle-blue.png');
+}
+.playhistory-box .timeline .timeline-list .line {
+	position: absolute;
+	top: 15px;
+	width: 100%;
+	height: 1px;
+	background-color: #c8c8c8;
+}
+.playhistory-box .timeline .timeline-list.focus .line {
+	background-color: #1aa1ff;
+}
+.playhistory-box .timeline .timeline-list .date {
+	margin-top: 5px;
+	font-size: 24px;
+	color: #c8c8c8;
+	line-height: 26px;
+}
+.playhistory-box .timeline .timeline-list.focus .date {
+	color: #1aa1ff;
+}
+
+
+.controller-nav, .controller-footer {
+	width: 930px;
+	left: 184px;
+}
+.controller-nav a {
+	width: 25%;
+}
+.controller-footer a {
+	width: 20%;
+}
+.controller-footer a:last-child, .controller-footer a:first-child {
+	width: 20%;
+}

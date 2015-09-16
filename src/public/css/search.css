@@ -62,3 +62,84 @@
 	height: 70px;
 	background: url('../images/search-tag-border.png') no-repeat;
 }
+
+.keyboard {
+	position: absolute;
+	left: -40px;
+	bottom: -10px;
+	width: 100%;
+	height: 264px;
+}
+.keyboard .keyboard-item {
+	width: 650px;
+	margin: 0 auto;
+}
+.keyboard .keyboard-item a {
+	position: relative;
+	display: inline-block;
+	float: left;
+	margin: 5px;
+	width: 55px;
+	height: 55px;
+	font-size: 30px;
+	color: #c8c8c8;
+	text-align: center;
+	line-height: 55px;
+	background: url('../images/keyboard-border.png') no-repeat;
+}
+.keyboard .keyboard-item a:focus:before {
+	position: absolute;
+	content: "";
+	top: -15px;
+	left: -15px;
+	width: 85px;
+	height: 85px;
+	background: url('../images/keyboard-border-focus.png');
+}
+.keyboard .keyboard-letter-2 {
+	width: 585px;
+}
+.keyboard .keyboard-letter-3 {
+	padding-left: 55px;
+	width: 585px;
+}
+.keyboard .keyboard-item .keyboard-del {
+	width: 120px;
+	background: url('../images/keyboard-del.png');
+}
+.keyboard .keyboard-item .keyboard-del:focus:before {
+	width: 150px;
+	background: url('../images/keyboard-del-focus.png');
+}
+.keyboard .keyboard-search {
+	position: absolute;
+	top: 5px;
+	right: 150px;
+	display: inline-block;
+	width: 60px;
+	height: 250px;
+	background: url('../images/keyboard-search.png') no-repeat;
+}
+.keyboard .keyboard-search:focus:before {
+	position: absolute;
+	content: "";
+	top: -15px;
+	left: -15px;
+	width: 90px;
+	height: 280px;
+	background: url('../images/keyboard-search-focus.png');
+}
+
+.controller-nav, .controller-footer {
+	width: 940px;
+	left: 185px;
+}
+.controller-nav a {
+	width: 25%;
+}
+.controller-footer a {
+	width: 20%;
+}
+.controller-footer a:last-child, .controller-footer a:first-child {
+	width: 20%;
+}
