@@ -1,0 +1,74 @@
+.product-box {
+	position: absolute;
+	top: 50px;
+	left: 100px;
+	width: 1080px;
+	height: 515px;
+}
+.product-box .header-title {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: inline-block;
+	font-size: 36px;
+	color: #ffffff;
+	font-weight: normal;
+	height: 50px;
+	line-height: 50px;
+}
+.product-box .product-content {
+	position: absolute;
+	top: 95px;
+	width: 100%;
+	text-align: center;
+}
+.product-box .product-content .product-title {
+	color: #ffffff;
+	font-size: 36px;
+	font-weight: normal;
+}
+.product-box .product-content a {
+	position: relative;
+	display: inline-block;
+	width: 315px;
+	height: 315px;
+	background: url('../images/opne-bg.png') no-repeat;
+}
+.product-box .product-content a:focus {
+	background: url('../images/open-border-focus.png');
+}
+.product-box .product-content span {
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+}
+.product-box .product-content .month {
+	margin-top: 168px;
+	font-size: 28px;
+	font-weight: bold;
+	color: #646464;
+}
+.product-box .product-content .price {
+	font-size: 60px;
+	color: #ffffff;
+}
+.product-box .product-content .price b {
+	font-weight: normal;
+	font-size: 28px;
+}
+
+
+
+.controller-nav, .controller-footer {
+	width: 620px;
+	left: 330px;
+}
+.controller-nav a {
+	width: 25%;
+}
+.controller-footer a {
+	width: 20%;
+}
+.controller-footer a:last-child, .controller-footer a:first-child {
+	width: 20%;
+}

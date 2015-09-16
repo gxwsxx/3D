@@ -1,0 +1,79 @@
+.user-box {
+	position: absolute;
+	top: 50px;
+	left: 100px;
+	width: 1080px;
+	height: 515px;
+}
+.user-box .header-title {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: inline-block;
+	font-size: 36px;
+	color: #ffffff;
+	font-weight: normal;
+	height: 50px;
+	line-height: 50px;
+}
+.user-box .content-list {
+	position: absolute;
+	top: 102px;
+	width: 100%;
+	text-align: center;
+}
+.user-box .content-list a {
+	position: relative;
+	display: inline-block;
+	/*float: left;*/
+	margin: 0 7px;
+	width: 250px;
+	height: 300px;
+}
+.user-box .content-list a:focus:before {
+	position: absolute;
+	top: -15px;
+	left: -15px;
+	content: "";
+	width: 280px;
+	height: 330px;
+	background: url('../images/user-border.png') no-repeat;
+}
+.user-box .content-list a img {
+	width: 250px;
+	height: 300px;
+}
+.user-box .content-list a .text {
+	position: absolute;
+	bottom: 20px;
+	color: #ffffff;
+	font-size: 24px;
+	width: 100%;
+	text-align: center;
+}
+.user-box .user-marquee {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	color: #fefefe;
+	font-size: 22px;
+	border-top: 1px solid #505050;
+	border-bottom: 1px solid #505050;
+}
+
+
+.controller-nav, .controller-footer {
+	width: 620px;
+	left: 330px;
+}
+.controller-nav a {
+	width: 25%;
+}
+.controller-footer a {
+	width: 20%;
+}
+.controller-footer a:last-child, .controller-footer a:first-child {
+	width: 20%;
+}
