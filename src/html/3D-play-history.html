@@ -7,6 +7,72 @@
 	<link rel="stylesheet" href="../public/css/playhistory.css" />
 	<link rel="stylesheet" href="../public/css/list.css" />
 	<script src="../public/js/template.js"></script>
+	<script>
+		var json = {
+			total: 12,    //总记录数
+			items: [{
+			    		title: "大圣归来",
+			    		img: "",
+			    		url: "###",
+			    		date: "2015-08-20 23:59:59"
+			    	},{
+			    		title: "大圣归来2",
+			    		img: "../uploads/img3.jpg",
+			    		url: "###",
+			    		date: "2015-08-20 23:59:59"
+			    	},{
+			    		title: "大圣归来3",
+			    		img: "../public/images/free-default.jpg",
+			    		url: "###",
+			    		date: "2015-08-20 23:59:59"
+			    	},{
+			    		title: "大圣归来4",
+			    		img: "../public/images/free-default.jpg",
+			    		url: "###",
+			    		date: "2015-08-20 23:59:59"
+			    	},{
+			    		title: "大圣归来5",
+			    		img: "../public/images/free-default.jpg",
+			    		url: "###",
+			    		date: "2015-08-20 23:59:59"
+			    	},{
+			    		title: "大圣归来6",
+			    		img: "../public/images/free-default.jpg",
+			    		url: "###",
+			    		date: "2016-08-20 23:59:59"
+			    	},{
+			    		title: "大圣归来",
+			    		img: "",
+			    		url: "###",
+			    		date: "2015-08-20 23:59:59"
+			    	},{
+			    		title: "大圣归来2",
+			    		img: "../uploads/img3.jpg",
+			    		url: "###",
+			    		date: "2015-08-20 23:59:59"
+			    	},{
+			    		title: "大圣归来3",
+			    		img: "../public/images/free-default.jpg",
+			    		url: "###",
+			    		date: "2015-08-20 23:59:59"
+			    	},{
+			    		title: "大圣归来4",
+			    		img: "../public/images/free-default.jpg",
+			    		url: "###",
+			    		date: "2015-08-20 23:59:59"
+			    	},{
+			    		title: "大圣归来5",
+			    		img: "../public/images/free-default.jpg",
+			    		url: "###",
+			    		date: "2015-08-20 23:59:59"
+			    	},{
+			    		title: "大圣归来5",
+			    		img: "../public/images/free-default.jpg",
+			    		url: "###",
+			    		date: "2015-08-20 23:59:59"
+			    	}]
+		}
+	</script>
 </head>
 <body>
 	<div class="playhistory-box">
@@ -15,62 +81,17 @@
 			<div class="prev"></div>
 			<div class="next"></div>
 			<div id="list" class="item clearfix">
-				<a href="#">
+				<!-- <a href="#">
 					<img src="../public/images/list-default.jpg">
 					<div class="title">我的身份</div>
-				</a>
-				<a href="#">
-					<img src="../public/images/list-default.jpg">
-					<div class="title">我的身份</div>
-				</a>
-				<a href="#">
-					<img src="../public/images/list-default.jpg">
-					<div class="title">我的身份</div>
-				</a>
-				<a href="#">
-					<img src="../public/images/list-default.jpg">
-					<div class="title">我的身份</div>
-				</a>
-				<a href="#">
-					<img src="../public/images/list-default.jpg">
-					<div class="title">我的身份</div>
-				</a>
-				<a href="#">
-					<img src="../public/images/list-default.jpg">
-					<div class="title">我的身份</div>
-				</a>
+				</a> -->
 			</div>
-			<div class="timeline">
-				<div class="timeline-list focus">
+			<div id="timeline" class="timeline">
+				<!-- <div class="timeline-list focus">
 					<span class="icon-triangle"></span>
 					<div class="line"></div>
 					<div class="date">2015-08-20 23:59:59</div>
-				</div>
-				<div class="timeline-list">
-					<span class="icon-triangle"></span>
-					<div class="line"></div>
-					<div class="date">2015-08-20 23:59:59</div>
-				</div>
-				<div class="timeline-list">
-					<span class="icon-triangle"></span>
-					<div class="line"></div>
-					<div class="date">2015-08-20 23:59:59</div>
-				</div>
-				<div class="timeline-list">
-					<span class="icon-triangle"></span>
-					<div class="line"></div>
-					<div class="date">2015-08-20 23:59:59</div>
-				</div>
-				<div class="timeline-list">
-					<span class="icon-triangle"></span>
-					<div class="line"></div>
-					<div class="date">2015-08-20 23:59:59</div>
-				</div>
-				<div class="timeline-list">
-					<span class="icon-triangle"></span>
-					<div class="line"></div>
-					<div class="date">2015-08-20 23:59:59</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</div>
@@ -93,5 +114,41 @@
 	</div>
 
 	<script src="../public/js/common.js"></script>
+	<script src="../public/js/pagination.js"></script>
+	<script id="listTpl" type="text/html">
+		{{each list as value i}}
+			<a onfocus="addFocus('#timeline-list-{{i}}')" onblur="removeFocus('#timeline-list-{{i}}')" href="{{value.url}}">
+				<img src="{{value.img | defaultImg:'../public/images/list-default.jpg'}}">
+				<div class="title">{{value.title}}</div>
+			</a>
+		{{/each}}
+	</script>
+	<script id="timelineTpl" type="text/html">
+		{{each list as value i}}
+			<div id="timeline-list-{{i}}" class="timeline-list">
+				<span class="icon-triangle"></span>
+				<div class="line"></div>
+				<div class="date">{{value.date}}</div>
+			</div>
+		{{/each}}
+	</script>
+	<script>
+		pagination({
+			template_id: "listTpl",
+			container_id: "list",
+			size: 6,
+			row: 6,
+			total: json.total,
+			items: json.items
+		});
+		pagination({
+			template_id: "timelineTpl",
+			container_id: "timeline",
+			size: 6,
+			row: 6,
+			total: json.total,
+			items: json.items
+		});
+	</script>
 </body>
 </html>

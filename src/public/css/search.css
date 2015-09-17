@@ -30,6 +30,7 @@
 	font-size: 22px;
 	line-height: 24px;
 	border-bottom: 1px solid #b4b4b4;
+	overflow: hidden;
 }
 
 .search-box .tag-list {

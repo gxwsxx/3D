@@ -6,6 +6,48 @@
 	<link rel="stylesheet" href="../public/css/style.css" />
 	<link rel="stylesheet" href="../public/css/variety.css" />
 	<script src="../public/js/template.js"></script>
+	<script>
+		var json = {
+			total: 12,    //总记录数
+			items: [{
+			    		img: "",
+			    		url: "###"
+			    	},{
+			    		img: "../uploads/img3.jpg",
+			    		url: "###"
+			    	},{
+			    		img: "../public/images/free-default.jpg",
+			    		url: "###"
+			    	},{
+			    		img: "../public/images/free-default.jpg",
+			    		url: "###"
+			    	},{
+			    		img: "../public/images/free-default.jpg",
+			    		url: "###"
+			    	},{
+			    		img: "../public/images/free-default.jpg",
+			    		url: "###"
+			    	},{
+			    		img: "",
+			    		url: "###"
+			    	},{
+			    		img: "../uploads/img3.jpg",
+			    		url: "###"
+			    	},{
+			    		img: "../public/images/free-default.jpg",
+			    		url: "###"
+			    	},{
+			    		img: "../public/images/free-default.jpg",
+			    		url: "###"
+			    	},{
+			    		img: "../public/images/free-default.jpg",
+			    		url: "###"
+			    	},{
+			    		img: "../public/images/free-default.jpg",
+			    		url: "###"
+			    	}]
+		}
+	</script>
 </head>
 <body>
 	<div id="header" class="header">
@@ -16,29 +58,14 @@
 		<span class="premiere hidden"></span>
 	</div>
 	<div id="variety-box" class="variety-box">
-		<img id="variety-big" class="variety-big" src="../public/images/variety-default01.jpg" />
+		<img id="variety-big" class="variety-big" src="" />
 		<div class="variety-content">
 			<div class="prev"></div>
 			<div class="next"></div>
 			<div id="variety-list" class="variety-list">
-				<a href="">
+				<!-- <a href="">
 					<img src="../public/images/variety-default02.jpg">
-				</a>
-				<a href="">
-					<img src="../public/images/variety-default02.jpg">
-				</a>
-				<a href="">
-					<img src="../public/images/variety-default02.jpg">
-				</a>
-				<a href="">
-					<img src="../public/images/variety-default02.jpg">
-				</a>
-				<a href="">
-					<img src="../public/images/variety-default02.jpg">
-				</a>
-				<a href="">
-					<img src="../public/images/variety-default02.jpg">
-				</a>
+				</a> -->
 			</div>
 		</div>
 	</div>
@@ -67,11 +94,34 @@
 	</div>
 
 	<script src="../public/js/common.js"></script>
-	<script id="Tpl" type="text/html">
-
+	<script src="../public/js/pagination.js"></script>
+	<script id="varietyTpl" type="text/html">
+		{{each list as value i}}
+			<a href="{{value.url}}">
+				<img src="{{value.img | defaultImg:'../public/images/variety-default02.jpg'}}">
+			</a>
+		{{/each}}
 	</script>
 	<script>
+		pagination({
+			template_id: "varietyTpl",
+			container_id: "variety-list",
+			size: 6,
+			row: 2,
+			total: json.total,
+			items: json.items
+		});
 
+		var aList = document.querySelectorAll('#variety-list a');
+			aList = Array.prototype.slice.call(aList);
+		aList.forEach(function(element, index){
+			element.onfocus = function(){
+				document.querySelector('#variety-big').src = this.children[0].src;
+			}
+			if(index === 0){
+				element.focus();
+			}
+		});
 	</script>
 </body>
 </html>

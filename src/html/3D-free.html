@@ -11,27 +11,27 @@
 			total: 5,    //总记录数
 			items: [{
 			    		title: "大圣归来",
-			    		detail: "大闹天宫后四百年多年，齐天大圣成了一个传说在山妖横行的长安城，孤儿江流儿（林子杰配音）与行脚僧法明（吴文伦配音）相依为命，小小少年常常神往大闹天宫的孙悟空。",
+			    		descripton: "12313213",
 			    		img: "",
 			    		url: "###"
 			    	},{
 			    		title: "大圣归来2",
-			    		detail: "大闹天宫后四百年多年，齐天大圣成了一个传说在山妖横行的长安城，孤儿江流儿（林子杰配音）与行脚僧法明（吴文伦配音）相依为命，小小少年常常神往大闹天宫的孙悟空。",
+			    		descripton: "12321",
+			    		img: "../uploads/img3.jpg",
+			    		url: "###"
+			    	},{
+			    		title: "大圣归来3",
+			    		descripton: "大闹天宫后四百年多年，齐天大圣成了一个传说在山妖横行的长安城，孤儿江流儿（林子杰配音）与行脚僧法明（吴文伦配音）相依为命，小小少年常常神往大闹天宫的孙悟空。",
 			    		img: "../public/images/free-default.jpg",
 			    		url: "###"
 			    	},{
-			    		title: "大圣归来2",
-			    		detail: "大闹天宫后四百年多年，齐天大圣成了一个传说在山妖横行的长安城，孤儿江流儿（林子杰配音）与行脚僧法明（吴文伦配音）相依为命，小小少年常常神往大闹天宫的孙悟空。",
+			    		title: "大圣归来4",
+			    		descripton: "大闹天宫后四百年多年，齐天大圣成了一个传说在山妖横行的长安城，孤儿江流儿（林子杰配音）与行脚僧法明（吴文伦配音）相依为命，小小少年常常神往大闹天宫的孙悟空。",
 			    		img: "../public/images/free-default.jpg",
 			    		url: "###"
 			    	},{
-			    		title: "大圣归来2",
-			    		detail: "大闹天宫后四百年多年，齐天大圣成了一个传说在山妖横行的长安城，孤儿江流儿（林子杰配音）与行脚僧法明（吴文伦配音）相依为命，小小少年常常神往大闹天宫的孙悟空。",
-			    		img: "../public/images/free-default.jpg",
-			    		url: "###"
-			    	},{
-			    		title: "大圣归来2",
-			    		detail: "大闹天宫后四百年多年，齐天大圣成了一个传说在山妖横行的长安城，孤儿江流儿（林子杰配音）与行脚僧法明（吴文伦配音）相依为命，小小少年常常神往大闹天宫的孙悟空。",
+			    		title: "大圣归来5",
+			    		descripton: "大闹天宫后四百年多年，齐天大圣成了一个传说在山妖横行的长安城，孤儿江流儿（林子杰配音）与行脚僧法明（吴文伦配音）相依为命，小小少年常常神往大闹天宫的孙悟空。",
 			    		img: "../public/images/free-default.jpg",
 			    		url: "###"
 			    	}]
@@ -49,10 +49,10 @@
 	<div id="free-box" class="free-box">
 		<div id="prev" class="prev"></div>
 		<div id="next" class="next"></div>
-		<div class="box-detail">
-			<img src="../public/images/free-default.jpg" >
-			<h1 class="title">大圣归来</h1>
-			<p>大闹天宫后四百年多年，齐天大圣成了一个传说在山妖横行的长安城，孤儿江流儿（林子杰配音）与行脚僧法明（吴文伦配音）相依为命，小小少年常常神往大闹天宫的孙悟空。有一天，山妖（吴迪配音）来劫掠童男童女，江流儿救了一个小女孩，惹得山妖追杀，盲打误撞地解除了孙悟空的封印。</p>
+		<div id="box-detail" class="box-detail">
+			<img src="" >
+			<h1 class="title"></h1>
+			<p></p>
 		</div>
 		<div id="free-list" class="free-list">
 			<!-- <a href="">
@@ -90,6 +90,8 @@
 	<script id="freeTpl" type="text/html">
 		{{each list as value i}}
 			<a href="{{value.url}}">
+				<div class="title hidden">{{value.title}}</div>
+				<div class="descripton hidden">{{value.descripton}}</div>
 				<div class="icon-play"></div>
 				<img src="{{value.img | defaultImg:'../public/images/free-default.jpg'}}">
 			</a>
@@ -100,8 +102,22 @@
 			template_id: "freeTpl",
 			container_id: "free-list",
 			size: 5,
-			total: 5,
+			row: 5,
+			total: json.total,
 			items: json.items
+		});
+
+		var aList = document.querySelectorAll('#free-list a');
+			aList = Array.prototype.slice.call(aList);
+		aList.forEach(function(element, index){
+			element.onfocus = function(){
+				document.querySelector('#box-detail .title').innerHTML = this.children[0].innerHTML;
+				document.querySelector('#box-detail p').innerHTML = this.children[1].innerHTML;
+				document.querySelector('#box-detail img').src = this.children[3].src;
+			}
+			if(index === 0){
+				element.focus();
+			}
 		});
 
 		// var data = {"list": json.item};

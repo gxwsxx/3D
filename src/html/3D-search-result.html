@@ -7,6 +7,72 @@
 	<link rel="stylesheet" href="../public/css/result.css" />
 	<link rel="stylesheet" href="../public/css/list.css" />
 	<script src="../public/js/template.js"></script>
+	<script>
+		var json = {
+			total: 15,    //总记录数
+			items: [{
+			    		title: "大圣归来",
+			    		img: "",
+			    		url: "###"
+			    	},{
+			    		title: "大圣归来2",
+			    		img: "../uploads/img3.jpg",
+			    		url: "###"
+			    	},{
+			    		title: "大圣归来3",
+			    		img: "../public/images/free-default.jpg",
+			    		url: "###"
+			    	},{
+			    		title: "大圣归来4",
+			    		img: "../public/images/free-default.jpg",
+			    		url: "###"
+			    	},{
+			    		title: "大圣归来5",
+			    		img: "../public/images/free-default.jpg",
+			    		url: "###"
+			    	},{
+			    		title: "大圣归来",
+			    		img: "",
+			    		url: "###"
+			    	},{
+			    		title: "大圣归来2",
+			    		img: "../uploads/img3.jpg",
+			    		url: "###"
+			    	},{
+			    		title: "大圣归来3",
+			    		img: "../public/images/free-default.jpg",
+			    		url: "###"
+			    	},{
+			    		title: "大圣归来4",
+			    		img: "../public/images/free-default.jpg",
+			    		url: "###"
+			    	},{
+			    		title: "大圣归来5",
+			    		img: "../public/images/free-default.jpg",
+			    		url: "###"
+			    	},{
+			    		title: "大圣归来",
+			    		img: "",
+			    		url: "###"
+			    	},{
+			    		title: "大圣归来2",
+			    		img: "../uploads/img3.jpg",
+			    		url: "###"
+			    	},{
+			    		title: "大圣归来3",
+			    		img: "../public/images/free-default.jpg",
+			    		url: "###"
+			    	},{
+			    		title: "大圣归来4",
+			    		img: "../public/images/free-default.jpg",
+			    		url: "###"
+			    	},{
+			    		title: "大圣归来5",
+			    		img: "../public/images/free-default.jpg",
+			    		url: "###"
+			    	}]
+		}
+	</script>
 </head>
 <body>
 	<div class="list-box">
@@ -15,54 +81,10 @@
 			<div class="prev"></div>
 			<div class="next"></div>
 			<div id="list" class="item clearfix">
-				<a href="#">
+				<!-- <a href="#">
 					<img src="../public/images/list-default.jpg">
 					<div class="title">我的身份</div>
-				</a>
-				<a href="">
-					<img src="../public/images/list-default.jpg">
-					<div class="title"></div>
-				</a>
-				<a href="">
-					<img src="../public/images/list-default.jpg">
-					<div class="title"></div>
-				</a>
-				<a href="">
-					<img src="../public/images/list-default.jpg">
-					<div class="title"></div>
-				</a>
-				<a href="">
-					<img src="../public/images/list-default.jpg">
-					<div class="title"></div>
-				</a>
-				<a href="">
-					<img src="../public/images/list-default.jpg">
-					<div class="title"></div>
-				</a>
-				<a href="">
-					<img src="../public/images/list-default.jpg">
-					<div class="title"></div>
-				</a>
-				<a href="">
-					<img src="../public/images/list-default.jpg">
-					<div class="title"></div>
-				</a>
-				<a href="">
-					<img src="../public/images/list-default.jpg">
-					<div class="title"></div>
-				</a>
-				<a href="">
-					<img src="../public/images/list-default.jpg">
-					<div class="title"></div>
-				</a>
-				<a href="">
-					<img src="../public/images/list-default.jpg">
-					<div class="title"></div>
-				</a>
-				<a href="">
-					<img src="../public/images/list-default.jpg">
-					<div class="title"></div>
-				</a>
+				</a> -->
 			</div>
 		</div>
 	</div>
@@ -85,5 +107,24 @@
 	</div>
 
 	<script src="../public/js/common.js"></script>
+	<script src="../public/js/pagination.js"></script>
+	<script id="listTpl" type="text/html">
+		{{each list as value i}}
+			<a href="{{value.url}}">
+				<img src="{{value.img | defaultImg:'../public/images/list-default.jpg'}}">
+				<div class="title">{{value.title}}</div>
+			</a>
+		{{/each}}
+	</script>
+	<script>
+		pagination({
+			template_id: "listTpl",
+			container_id: "list",
+			size: 12,
+			row: 6,
+			total: json.total,
+			items: json.items
+		});
+	</script>
 </body>
 </html>

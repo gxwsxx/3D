@@ -6,6 +6,52 @@
 	<link rel="stylesheet" href="../public/css/style.css" />
 	<link rel="stylesheet" href="../public/css/tourism.css" />
 	<script src="../public/js/template.js"></script>
+	<script>
+		var json = {
+			total: 8,    //总记录数
+			items: [{
+			    		title: "2015年最新三亚旅游攻略",
+			    		icon: "",
+			    		img: "",
+			    		url: "###"
+			    	},{
+			    		title: "2015年最新三亚旅游攻略",
+			    		icon: "new",
+			    		img: "../public/images/tour-default.jpg",
+			    		url: "###"
+			    	},{
+			    		title: "2015年最新三亚旅游攻略",
+			    		icon: "new",
+			    		img: "../public/images/tour-default.jpg",
+			    		url: "###"
+			    	},{
+			    		title: "2015年最新三亚旅游攻略",
+			    		icon: "new",
+			    		img: "../public/images/tour-default.jpg",
+			    		url: "###"
+			    	},{
+			    		title: "2015年最新三亚旅游攻略",
+			    		icon: "new",
+			    		img: "../public/images/tour-default.jpg",
+			    		url: "###"
+			    	},{
+			    		title: "2015年最新三亚旅游攻略",
+			    		icon: "new",
+			    		img: "../public/images/tour-default.jpg",
+			    		url: "###"
+			    	},{
+			    		title: "2015年最新三亚旅游攻略",
+			    		icon: "new",
+			    		img: "../public/images/tour-default.jpg",
+			    		url: "###"
+			    	},{
+			    		title: "2015年最新三亚旅游攻略",
+			    		icon: "new",
+			    		img: "../public/images/tour-default.jpg",
+			    		url: "###"
+			    	}]
+		}
+	</script>
 </head>
 <body>
 	<div id="header" class="header">
@@ -19,26 +65,11 @@
 		<div class="prev"></div>
 		<div class="next"></div>
 		<div id="tour-list" class="tour-list">
-			<a href="">
+			<!-- <a href="">
 				<div class="icon-new"></div>
 				<img src="../public/images/tour-default.jpg">
 				<div class="title">2015年最新三亚旅游攻略</div>
-			</a>
-			<a href="">
-				<div class="icon-new"></div>
-				<img src="../public/images/tour-default.jpg">
-				<div class="title">2015年最新三亚旅游攻略</div>
-			</a>
-			<a href="">
-				<div class="icon-new"></div>
-				<img src="../public/images/tour-default.jpg">
-				<div class="title">2015年最新三亚旅游攻略</div>
-			</a>
-			<a href="">
-				<div class="icon-new"></div>
-				<img src="../public/images/tour-default.jpg">
-				<div class="title">2015年最新三亚旅游攻略</div>
-			</a>
+			</a> -->
 		</div>
 		
 	</div>
@@ -67,11 +98,27 @@
 	</div>
 
 	<script src="../public/js/common.js"></script>
-	<script id="Tpl" type="text/html">
-
+	<script src="../public/js/pagination.js"></script>
+	<script id="tourTpl" type="text/html">
+		{{each list as value i}}
+			<a href="{{value.url}}">
+				{{if value.icon}}
+					<div class="icon-{{value.icon}}"></div>
+				{{/if}}
+				<img src="{{value.img | defaultImg:'../public/images/tour-default.jpg'}}">
+				<div class="title">{{value.title}}</div>
+			</a>
+		{{/each}}
 	</script>
 	<script>
-
+		pagination({
+			template_id: "tourTpl",
+			container_id: "tour-list",
+			size: 4,
+			row: 2,
+			total: json.total,
+			items: json.items
+		});
 	</script>
 </body>
 </html>

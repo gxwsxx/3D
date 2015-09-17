@@ -2,7 +2,17 @@
 	"use strict";
 
 	var root = this;
-
+	
+	template.helper('defaultImg', function(img, defimg){
+		var defimg = defimg;
+		if(!defimg) {
+			defimg = '../public/images/car-default.jpg';
+		}
+		if(!img){
+			img = defimg;
+		}
+		return img;
+	});
 	var pagination = function(options){
 		var defaults = {
 			template_id: "", //模版id
@@ -12,6 +22,7 @@
 			curr: 1, //客户端当前页
 			size: 4, //每页显示个数
 			total: 1, //总记录数
+			row: 4, //每个个数 用来做翻页控制
 			items: [] //数据
 		};
 		var param = defaults;
@@ -36,17 +47,17 @@
 			}
 			var html = template(param.template_id, data);
 			document.getElementById(param.container_id).innerHTML = html;
-
 			if(pages === 1) {
-				console.log(prev);
 				prev.style.display = "none";
 				next.style.display = "none";
 				return;
 			}
 			if(param.curr === 1){
 				prev.style.display = "none";
+				next.style.display = "block";
 			}else if(param.curr === pages){
 				next.style.display = "none";
+				prev.style.display = "block";
 			}else {
 				prev.style.display = "block";
 				next.style.display = "block";
@@ -55,7 +66,7 @@
 			var nodelist = document.querySelectorAll('#'+param.container_id+' a');
 				nodelist = Array.prototype.slice.call(nodelist);
 			nodelist.forEach(function(element, index){
-				if(index % param.size === param.size-1){
+				if(index % param.row === param.row-1){
 					element.onkeydown = function(e){
 						e = e || window.event;
 						if(e.keyCode === 39){
@@ -66,7 +77,7 @@
 						}
 					}
 				}
-				if(index % param.size === 0){
+				if(index % param.row === 0){
 					element.onkeydown = function(e){
 						e = e || window.event;
 						if(e.keyCode === 37){

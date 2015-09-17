@@ -24,14 +24,3 @@ function removeFocus(el){
 	});
 	element.className = classname.join(" ");
 }
-
-template.helper('defaultImg', function(img, defimg){
-	var defimg = defimg;
-	if(!defimg) {
-		defimg = '../public/images/car-default.jpg';
-	}
-	if(!img){
-		img = defimg;
-	}
-	return img;
-});

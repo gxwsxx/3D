@@ -6,6 +6,37 @@
 	<link rel="stylesheet" href="../public/css/style.css" />
 	<link rel="stylesheet" href="../public/css/movie.css" />
 	<script src="../public/js/template.js"></script>
+	<script>
+		var json = {
+			total: 5,    //总记录数
+			items: [{
+			    		title: "大圣归来",
+			    		img: "",
+			    		icon: "new",
+			    		url: "###"
+			    	},{
+			    		title: "大圣归来2",
+			    		img: "../uploads/img3.jpg",
+			    		icon: "new",
+			    		url: "###"
+			    	},{
+			    		title: "大圣归来3",
+			    		img: "../public/images/free-default.jpg",
+			    		icon: "new",
+			    		url: "###"
+			    	},{
+			    		title: "大圣归来4",
+			    		img: "../public/images/free-default.jpg",
+			    		icon: "new",
+			    		url: "###"
+			    	},{
+			    		title: "大圣归来5",
+			    		img: "../public/images/free-default.jpg",
+			    		icon: "new",
+			    		url: "###"
+			    	}]
+		}
+	</script>
 </head>
 <body>
 	<div id="header" class="header">
@@ -19,31 +50,11 @@
 		<div class="prev"></div>
 		<div class="next"></div>
 		<div id="movie-list" class="movie-list">
-			<a href="">
+			<!-- <a href="">
 				<div class="icon-new"></div>
 				<img src="../public/images/default01.jpg">
 				<div class="title">盗墓笔记</div>
-			</a>
-			<a href="">
-				<div class="icon-new"></div>
-				<img src="../public/images/default01.jpg">
-				<div class="title">盗墓笔记</div>
-			</a>
-			<a href="">
-				<div class="icon-new"></div>
-				<img src="../public/images/default01.jpg">
-				<div class="title">盗墓笔记</div>
-			</a>
-			<a href="">
-				<div class="icon-new"></div>
-				<img src="../public/images/default01.jpg">
-				<div class="title">盗墓笔记</div>
-			</a>
-			<a href="">
-				<div class="icon-new"></div>
-				<img src="../public/images/default01.jpg">
-				<div class="title">盗墓笔记</div>
-			</a>
+			</a> -->
 		</div>
 	</div>
 	<div id="footer" class="footer">
@@ -71,11 +82,27 @@
 	</div>
 
 	<script src="../public/js/common.js"></script>
-	<script id="Tpl" type="text/html">
-
+	<script src="../public/js/pagination.js"></script>
+	<script id="movieTpl" type="text/html">
+		{{each list as value i}}
+			<a href="{{value.url}}">
+				{{if value.icon}}
+					<div class="icon-{{value.icon}}"></div>
+				{{/if}}
+				<img src="{{value.img | defaultImg:'../public/images/default01.jpg'}}">
+				<div class="title">{{value.title}}</div>
+			</a>
+		{{/each}}
 	</script>
 	<script>
-
+		pagination({
+			template_id: "movieTpl",
+			container_id: "movie-list",
+			size: 5,
+			row: 5,
+			total: json.total,
+			items: json.items
+		});
 	</script>
 </body>
 </html>

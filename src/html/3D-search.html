@@ -5,7 +5,6 @@
 	<title>3D 搜索</title>
 	<link rel="stylesheet" href="../public/css/style.css" />
 	<link rel="stylesheet" href="../public/css/search.css" />
-	<script src="../public/js/template.js"></script>
 </head>
 <body>
 	<div class="search-box">
@@ -37,51 +36,51 @@
 		</div>
 		<div class="keyboard">
 			<div class="keyboard-item keyboard-number clearfix">
-				<a id="focus" href="javascript:;">1</a>
-				<a href="javascript:;">2</a>
-				<a href="javascript:;">3</a>
-				<a href="javascript:;">4</a>
-				<a href="javascript:;">5</a>
-				<a href="javascript:;">6</a>
-				<a href="javascript:;">7</a>
-				<a href="javascript:;">8</a>
-				<a href="javascript:;">9</a>
-				<a href="javascript:;">0</a>
+				<a href="javascript:;" data-key="1">1</a>
+				<a href="javascript:;" data-key="2">2</a>
+				<a href="javascript:;" data-key="3">3</a>
+				<a href="javascript:;" data-key="4">4</a>
+				<a href="javascript:;" data-key="5">5</a>
+				<a href="javascript:;" data-key="6">6</a>
+				<a href="javascript:;" data-key="7">7</a>
+				<a href="javascript:;" data-key="8">8</a>
+				<a href="javascript:;" data-key="9">9</a>
+				<a href="javascript:;" data-key="0">0</a>
 			</div>
 			<div class="keyboard-item keyboard-letter-1 clearfix">
-				<a href="javascript:;">Q</a>
-				<a href="javascript:;">W</a>
-				<a href="javascript:;">E</a>
-				<a href="javascript:;">R</a>
-				<a href="javascript:;">T</a>
-				<a href="javascript:;">Y</a>
-				<a href="javascript:;">U</a>
-				<a href="javascript:;">I</a>
-				<a href="javascript:;">O</a>
-				<a href="javascript:;">P</a>
+				<a href="javascript:;" data-key="Q">Q</a>
+				<a href="javascript:;" data-key="W">W</a>
+				<a href="javascript:;" data-key="E">E</a>
+				<a href="javascript:;" data-key="R">R</a>
+				<a href="javascript:;" data-key="T">T</a>
+				<a href="javascript:;" data-key="Y">Y</a>
+				<a href="javascript:;" data-key="U">U</a>
+				<a href="javascript:;" data-key="I">I</a>
+				<a href="javascript:;" data-key="O">O</a>
+				<a href="javascript:;" data-key="P">P</a>
 			</div>
 			<div class="keyboard-item keyboard-letter-2 clearfix">
-				<a href="javascript:;">A</a>
-				<a href="javascript:;">S</a>
-				<a href="javascript:;">D</a>
-				<a href="javascript:;">F</a>
-				<a href="javascript:;">G</a>
-				<a href="javascript:;">H</a>
-				<a href="javascript:;">J</a>
-				<a href="javascript:;">K</a>
-				<a href="javascript:;">L</a>
+				<a href="javascript:;" data-key="A">A</a>
+				<a href="javascript:;" data-key="S">S</a>
+				<a href="javascript:;" data-key="D">D</a>
+				<a href="javascript:;" data-key="F">F</a>
+				<a href="javascript:;" data-key="G">G</a>
+				<a href="javascript:;" data-key="H">H</a>
+				<a href="javascript:;" data-key="J">J</a>
+				<a href="javascript:;" data-key="K">K</a>
+				<a href="javascript:;" data-key="L">L</a>
 			</div>
 			<div class="keyboard-item keyboard-letter-3 clearfix">
-				<a href="javascript:;">Z</a>
-				<a href="javascript:;">X</a>
-				<a href="javascript:;">C</a>
-				<a href="javascript:;">V</a>
-				<a href="javascript:;">B</a>
-				<a href="javascript:;">N</a>
-				<a href="javascript:;">M</a>
+				<a href="javascript:;" data-key="Z">Z</a>
+				<a href="javascript:;" data-key="X">X</a>
+				<a href="javascript:;" data-key="C">C</a>
+				<a href="javascript:;" data-key="V">V</a>
+				<a href="javascript:;" data-key="B">B</a>
+				<a href="javascript:;" data-key="N">N</a>
+				<a href="javascript:;" data-key="M">M</a>
 				<a href="javascript:;" class="keyboard-del"></a>
 			</div>
-			<a class="keyboard-search" href=""></a>
+			<a class="keyboard-search" id="btn-search" href="javascript:;"></a>
 		</div>
 	</div>
 	<div id="footer" class="footer">
@@ -103,5 +102,49 @@
 	</div>
 
 	<script src="../public/js/common.js"></script>
+	<script>
+		var a = document.querySelectorAll('.keyboard-item a');
+			a = Array.prototype.slice.call(a);
+		
+		var input = document.getElementById('input');
+		var keys = [];
+		var oldvalue = input.innerHTML;
+
+		a.forEach(function(v){
+			var classname = v.className;
+			v.onfocus = function(){
+				this.onkeydown = function(e){
+					e = e || window.event;
+					if(e.keyCode === 13){
+						if(classname){
+							keys.pop();
+						}else{
+							var key = this.getAttribute('data-key');
+							keys.push(key);
+						}
+						if(keys.length > 0){
+							input.style.color = "#ffffff";
+							input.innerHTML = keys.join('');
+						}else{
+							input.style.color = '';
+							input.innerHTML = oldvalue;
+						}
+					}
+				}
+			};
+		});
+		a[0].focus();
+
+		document.getElementById('btn-search').onkeydown = function(e){
+			e = e || window.event;
+			var url = this.href + '?keyword=' + keys.join('');
+			if(e.keyCode === 13){
+				if(keys.length < 1){
+					return false;
+				}
+				window.location.href = url;
+			}
+		}
+	</script>
 </body>
 </html>
