@@ -55,8 +55,12 @@
 	line-height: 30px;
 	overflow: hidden;
 }
+.detail-box .detail-inner .btn-group {
+	position: absolute;
+	bottom: 0;
+}
 .detail-box .detail-inner .btn-play, .detail-box .detail-inner .btn-shoucang, .detail-box .detail-inner .btn-ysc {
-	margin-top: 48px;
+
 }
 .detail-box .detail-inner .btn-play {
 	display: inline-block;

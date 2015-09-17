@@ -1,3 +1,7 @@
+if(document.getElementById('focus')){
+	document.getElementById('focus').focus();
+}
+
 function show(el){
 	document.querySelector(el).style.display = "block";
 }
@@ -20,3 +24,14 @@ function removeFocus(el){
 	});
 	element.className = classname.join(" ");
 }
+
+template.helper('defaultImg', function(img, defimg){
+	var defimg = defimg;
+	if(!defimg) {
+		defimg = '../public/images/car-default.jpg';
+	}
+	if(!img){
+		img = defimg;
+	}
+	return img;
+});

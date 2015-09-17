@@ -6,6 +6,37 @@
 	<link rel="stylesheet" href="../public/css/style.css" />
 	<link rel="stylesheet" href="../public/css/free.css" />
 	<script src="../public/js/template.js"></script>
+	<script>
+		var json = {
+			total: 5,    //总记录数
+			items: [{
+			    		title: "大圣归来",
+			    		detail: "大闹天宫后四百年多年，齐天大圣成了一个传说在山妖横行的长安城，孤儿江流儿（林子杰配音）与行脚僧法明（吴文伦配音）相依为命，小小少年常常神往大闹天宫的孙悟空。",
+			    		img: "",
+			    		url: "###"
+			    	},{
+			    		title: "大圣归来2",
+			    		detail: "大闹天宫后四百年多年，齐天大圣成了一个传说在山妖横行的长安城，孤儿江流儿（林子杰配音）与行脚僧法明（吴文伦配音）相依为命，小小少年常常神往大闹天宫的孙悟空。",
+			    		img: "../public/images/free-default.jpg",
+			    		url: "###"
+			    	},{
+			    		title: "大圣归来2",
+			    		detail: "大闹天宫后四百年多年，齐天大圣成了一个传说在山妖横行的长安城，孤儿江流儿（林子杰配音）与行脚僧法明（吴文伦配音）相依为命，小小少年常常神往大闹天宫的孙悟空。",
+			    		img: "../public/images/free-default.jpg",
+			    		url: "###"
+			    	},{
+			    		title: "大圣归来2",
+			    		detail: "大闹天宫后四百年多年，齐天大圣成了一个传说在山妖横行的长安城，孤儿江流儿（林子杰配音）与行脚僧法明（吴文伦配音）相依为命，小小少年常常神往大闹天宫的孙悟空。",
+			    		img: "../public/images/free-default.jpg",
+			    		url: "###"
+			    	},{
+			    		title: "大圣归来2",
+			    		detail: "大闹天宫后四百年多年，齐天大圣成了一个传说在山妖横行的长安城，孤儿江流儿（林子杰配音）与行脚僧法明（吴文伦配音）相依为命，小小少年常常神往大闹天宫的孙悟空。",
+			    		img: "../public/images/free-default.jpg",
+			    		url: "###"
+			    	}]
+		}
+	</script>
 </head>
 <body>
 	<div id="header" class="header">
@@ -16,8 +47,8 @@
 		<span class="premiere hidden"></span>
 	</div>
 	<div id="free-box" class="free-box">
-		<div class="prev"></div>
-		<div class="next"></div>
+		<div id="prev" class="prev"></div>
+		<div id="next" class="next"></div>
 		<div class="box-detail">
 			<img src="../public/images/free-default.jpg" >
 			<h1 class="title">大圣归来</h1>
@@ -55,47 +86,27 @@
 	</div>
 
 	<script src="../public/js/common.js"></script>
+	<script src="../public/js/pagination.js"></script>
 	<script id="freeTpl" type="text/html">
 		{{each list as value i}}
 			<a href="{{value.url}}">
 				<div class="icon-play"></div>
-				<img src="{{value.img}}">
+				<img src="{{value.img | defaultImg:'../public/images/free-default.jpg'}}">
 			</a>
 		{{/each}}
 	</script>
 	<script>
-		var data = {
-		    "list": [
-		    	{
-		    		title: "大圣归来",
-		    		detail: "大闹天宫后四百年多年，齐天大圣成了一个传说在山妖横行的长安城，孤儿江流儿（林子杰配音）与行脚僧法明（吴文伦配音）相依为命，小小少年常常神往大闹天宫的孙悟空。",
-		    		img: "../public/images/free-default.jpg",
-		    		url: "###"
-		    	},{
-		    		title: "大圣归来2",
-		    		detail: "大闹天宫后四百年多年，齐天大圣成了一个传说在山妖横行的长安城，孤儿江流儿（林子杰配音）与行脚僧法明（吴文伦配音）相依为命，小小少年常常神往大闹天宫的孙悟空。",
-		    		img: "../public/images/free-default.jpg",
-		    		url: "###"
-		    	},{
-		    		title: "大圣归来2",
-		    		detail: "大闹天宫后四百年多年，齐天大圣成了一个传说在山妖横行的长安城，孤儿江流儿（林子杰配音）与行脚僧法明（吴文伦配音）相依为命，小小少年常常神往大闹天宫的孙悟空。",
-		    		img: "../public/images/free-default.jpg",
-		    		url: "###"
-		    	},{
-		    		title: "大圣归来2",
-		    		detail: "大闹天宫后四百年多年，齐天大圣成了一个传说在山妖横行的长安城，孤儿江流儿（林子杰配音）与行脚僧法明（吴文伦配音）相依为命，小小少年常常神往大闹天宫的孙悟空。",
-		    		img: "../public/images/free-default.jpg",
-		    		url: "###"
-		    	},{
-		    		title: "大圣归来2",
-		    		detail: "大闹天宫后四百年多年，齐天大圣成了一个传说在山妖横行的长安城，孤儿江流儿（林子杰配音）与行脚僧法明（吴文伦配音）相依为命，小小少年常常神往大闹天宫的孙悟空。",
-		    		img: "../public/images/free-default.jpg",
-		    		url: "###"
-		    	}
-		    ]
-		}
-		var html = template('freeTpl', data);
-		document.getElementById('free-list').innerHTML = html;
+		pagination({
+			template_id: "freeTpl",
+			container_id: "free-list",
+			size: 5,
+			total: 5,
+			items: json.items
+		});
+
+		// var data = {"list": json.item};
+		// var html = template('freeTpl', data);
+		// document.getElementById('free-list').innerHTML = html;
 	</script>
 </body>
 </html>
