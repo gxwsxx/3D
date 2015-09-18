@@ -44,7 +44,7 @@
 .message-box .detail .detail-inner {
 	position: relative;
 	margin-top: 16px;
-	height: 308px;
+	height: 364px;
 	overflow: hidden;
 }
 .message-box .detail .detail-inner .content {
@@ -59,7 +59,7 @@
 	top: 0;
 	right: 2px;
 	width: 38px;
-	height: 308px;
+	height: 364px;
 	display: none;
 	/*border: 1px solid red;*/
 }

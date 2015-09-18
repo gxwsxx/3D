@@ -10,11 +10,11 @@
 		var json = {
 			total: 12,    //总记录数
 			items: [{	
-		    		title: "顶级法拉利跑车1",
+		    		title: "顶级法拉利跑车顶级法拉利跑车1",
 		    		img: "../uploads/img3.jpg",
 		    		url: "###"
 		    	},{	
-		    		title: "顶级法拉利2",
+		    		title: "顶级法拉利顶级法拉利顶级法拉利2",
 		    		img: "",
 		    		url: "###"
 		    	},{	
@@ -30,11 +30,11 @@
 		    		img: "",
 		    		url: "###"
 		    	},{	
-		    		title: "顶级法拉利6",
+		    		title: "顶级法拉利顶级法拉利顶级法拉利顶级法拉利6",
 		    		img: "",
 		    		url: "###"
 		    	},{	
-		    		title: "顶级法拉利7",
+		    		title: "顶级法拉利顶级法拉利顶级法拉利7",
 		    		img: "",
 		    		url: "###"
 		    	},{	
@@ -42,7 +42,7 @@
 		    		img: "",
 		    		url: "###"
 		    	},{	
-		    		title: "顶级法拉利9",
+		    		title: "顶级法拉利顶级法拉利顶级法拉利顶级法拉利9",
 		    		img: "",
 		    		url: "###"
 		    	},{	
@@ -109,14 +109,13 @@
 	<script src="../public/js/pagination.js"></script>
 	<script id="carTpl" type="text/html">
 		{{each list as value index}}
-			<a href="{{value.url}}">
+			<a onfocus="addMarquee(this)" onblur="removeMarquee(this)" href="{{value.url}}">
 				<img src="{{value.img | defaultImg}}">
 				<div class="title">{{value.title}}</div>
 			</a>
 		{{/each}}
 	</script>
 	<script>
-		
 		pagination({
 			template_id: "carTpl",
 			container_id: "car-list",
@@ -125,6 +124,18 @@
 			total: json.total,
 			items: json.items
 		});
+		var title = "";
+		function addMarquee(obj){
+			title = obj.children[1].innerHTML;
+			if(title.length > 8){
+				obj.children[1].innerHTML = "<marquee behavior='scroll' direction = 'left' scrollamount='5'>"+title+"</marquee>";
+			}
+		}
+		function removeMarquee(obj){
+			if(title.length > 8){
+				obj.children[1].innerHTML = title;
+			}
+		}
 	</script>
 </body>
 </html>

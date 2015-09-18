@@ -10,7 +10,7 @@
 		var json = {
 			total: 8,    //总记录数
 			items: [{
-			    		title: "2015年最新三亚旅游攻略",
+			    		title: "年最新三亚旅游攻略年最新三亚旅游攻略年最新三亚旅游攻略年最新三亚旅游攻略",
 			    		icon: "",
 			    		img: "",
 			    		url: "###"
@@ -101,7 +101,7 @@
 	<script src="../public/js/pagination.js"></script>
 	<script id="tourTpl" type="text/html">
 		{{each list as value i}}
-			<a href="{{value.url}}">
+			<a onfocus="addMarquee(this)" onblur="removeMarquee(this)" href="{{value.url}}">
 				{{if value.icon}}
 					<div class="icon-{{value.icon}}"></div>
 				{{/if}}
@@ -119,6 +119,19 @@
 			total: json.total,
 			items: json.items
 		});
+
+		var title = "";
+		function addMarquee(obj){
+			title = obj.children[1].innerHTML;
+			if(title.length > 18){
+				obj.children[1].innerHTML = "<marquee>"+title+"</marquee>";
+			}
+		}
+		function removeMarquee(obj){
+			if(title.length > 18){
+				obj.children[1].innerHTML = title;
+			}
+		}
 	</script>
 </body>
 </html>

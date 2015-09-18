@@ -11,7 +11,7 @@
 		var json = {
 			total: 12,    //总记录数
 			items: [{
-			    		title: "大圣归来",
+			    		title: "大圣归来大圣归来",
 			    		img: "",
 			    		url: "###",
 			    		date: "2015-08-20 23:59:59"
@@ -117,7 +117,7 @@
 	<script src="../public/js/pagination.js"></script>
 	<script id="listTpl" type="text/html">
 		{{each list as value i}}
-			<a onfocus="addFocus('#timeline-list-{{i}}')" onblur="removeFocus('#timeline-list-{{i}}')" href="{{value.url}}">
+			<a onfocus="addFocus('#timeline-list-{{i}}');addMarquee(this)" onblur="removeFocus('#timeline-list-{{i}}');removeMarquee(this)" href="{{value.url}}">
 				<img src="{{value.img | defaultImg:'../public/images/list-default.jpg'}}">
 				<div class="title">{{value.title}}</div>
 			</a>
@@ -149,6 +149,19 @@
 			total: json.total,
 			items: json.items
 		});
+
+		var title = "";
+		function addMarquee(obj){
+			title = obj.children[1].innerHTML;
+			if(title.length > 5){
+				obj.children[1].innerHTML = "<marquee>"+title+"</marquee>";
+			}
+		}
+		function removeMarquee(obj){
+			if(title.length > 5){
+				obj.children[1].innerHTML = title;
+			}
+		}
 	</script>
 </body>
 </html>
