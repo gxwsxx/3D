@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>3D-搜索结果 无内容</title>
+	<link rel="stylesheet" href="../public/css/style.css" />
+	<link rel="stylesheet" href="../public/css/result.css" />
+	<style>
+		.empty {
+			position: absolute;
+			top: 210px;
+			left: 423px;
+			width: 427px;
+			height: 245px;
+			background: url('../public/images/search-empty.png') no-repeat;
+		}
+	</style>
+</head>
+<body>
+	<div class="list-box">
+		<div class="header-title">搜索结果<span>(关键字：***)</span></div>
+	</div>
+	<div class="empty"></div>
+	<div id="footer" class="footer">
+		<span id="footer0" class="home"></span>
+		<span id="footer1" class="back"></span>
+		<span id="footer2" class="search"></span>
+		<span id="footer3" class="my"></span>
+		<span id="footer4" class="index"></span>
+	</div>
+	<div id="controller" class="controller">
+		<div class="controller-nav">
+			<a href="#" onfocus="addFocus('#nav0')" onblur="removeFocus('#nav0')"><img src="../public/images/dot.gif" /></a>
+			<a href="#" onfocus="addFocus('#nav1')" onblur="removeFocus('#nav1')"><img src="../public/images/dot.gif" /></a>
+			<a href="#" onfocus="addFocus('#nav2')" onblur="removeFocus('#nav2')"><img src="../public/images/dot.gif" /></a>
+			<a href="#" onfocus="addFocus('#nav3')" onblur="removeFocus('#nav3')"><img src="../public/images/dot.gif" /></a>
+		</div>
+		<div class="controller-footer">
+			<a href="#" onfocus="addFocus('#footer0')" onblur="removeFocus('#footer0')"><img src="../public/images/dot.gif" /></a>
+			<a href="#" onfocus="addFocus('#footer1')" onblur="removeFocus('#footer1')"><img src="../public/images/dot.gif" /></a>
+			<a id="focus" href="#" onfocus="addFocus('#footer2')" onblur="removeFocus('#footer2')"><img src="../public/images/dot.gif" /></a>
+			<a href="#" onfocus="addFocus('#footer3')" onblur="removeFocus('#footer3')"><img src="../public/images/dot.gif" /></a>
+			<a href="#" onfocus="addFocus('#footer4')" onblur="removeFocus('#footer4')"><img src="../public/images/dot.gif" /></a>
+		</div>
+	</div>
+	<script src="../public/js/common.js"></script>
+</body>
+</html>

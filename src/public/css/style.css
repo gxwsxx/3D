@@ -148,6 +148,12 @@ a {
 .footer .my.focus {
 	background: url('../images/my-focus.png') no-repeat top;
 }
+.footer .my-no {
+	background: url('../images/my-no-message.png') no-repeat bottom;
+}
+.footer .my-no.focus {
+	background: url('../images/my-focus-no-message.png') no-repeat top;
+}
 .footer .index {
 	background: url('../images/index.png') no-repeat bottom;
 }
