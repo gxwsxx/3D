@@ -42,7 +42,7 @@
 	width: 240px;
 	height: 340px;
 	z-index: 9;
-	background: url('../images/documentary-border.png') no-repeat;
+	background: url('../images/movie-border.png') no-repeat;
 }
 .movie-box .movie-list a img {
 	width: 190px;

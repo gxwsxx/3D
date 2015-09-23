@@ -38,7 +38,7 @@
 .content .recommend-left .title {
 	position: absolute;
 	left: 0;
-	bottom: 2px;
+	bottom: 0;
 	color: #ffffff;
 	font-size: 28px;
 	height: 42px;

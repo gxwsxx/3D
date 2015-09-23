@@ -22,16 +22,15 @@
 			curr: 1, //客户端当前页
 			size: 4, //每页显示个数
 			total: 1, //总记录数
-			row: 4, //每个个数 用来做翻页控制
+			row: 4, //每行个数 用来做翻页控制
 			items: [] //数据
 		};
 		var param = defaults;
 		for(var key in options){
 			param[key] = options[key];
 		}
-		if(!param.template_id || !param.container_id || param.items.length === 0){
-			return;
-		}
+		if(!param.template_id || !param.container_id || param.items.length === 0) return;
+
 		var loadData = function(){
 			var start = 0;
 			var prev = document.getElementById(param.prev) || document.getElementsByClassName(param.prev)[0];
