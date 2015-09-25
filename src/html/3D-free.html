@@ -89,7 +89,7 @@
 	<script src="../public/js/pagination.js"></script>
 	<script id="freeTpl" type="text/html">
 		{{each list as value i}}
-			<a href="{{value.url}}">
+			<a onfocus="showDetail(this)" href="{{value.url}}">
 				<div class="title hidden">{{value.title}}</div>
 				<div class="descripton hidden">{{value.descripton}}</div>
 				<div class="icon-play"></div>
@@ -106,19 +106,23 @@
 			total: json.total,
 			items: json.items
 		});
-
-		var aList = document.querySelectorAll('#free-list a');
-			aList = Array.prototype.slice.call(aList);
-		aList.forEach(function(element, index){
-			element.onfocus = function(){
-				document.querySelector('#box-detail .title').innerHTML = this.children[0].innerHTML;
-				document.querySelector('#box-detail p').innerHTML = this.children[1].innerHTML;
-				document.querySelector('#box-detail img').src = this.children[3].src;
-			}
-			if(index === 0){
-				element.focus();
-			}
-		});
+		function showDetail(obj) {
+			document.querySelector('#box-detail .title').innerHTML = obj.children[0].innerHTML;
+			document.querySelector('#box-detail p').innerHTML = obj.children[1].innerHTML;
+			document.querySelector('#box-detail img').src = obj.children[3].src;
+		}
+		// var aList = document.querySelectorAll('#free-list a');
+		// 	aList = Array.prototype.slice.call(aList);
+		// aList.forEach(function(element, index){
+		// 	element.onfocus = function(){
+		// 		document.querySelector('#box-detail .title').innerHTML = this.children[0].innerHTML;
+		// 		document.querySelector('#box-detail p').innerHTML = this.children[1].innerHTML;
+		// 		document.querySelector('#box-detail img').src = this.children[3].src;
+		// 	}
+		// 	if(index === 0){
+		// 		element.focus();
+		// 	}
+		// });
 
 		// var data = {"list": json.item};
 		// var html = template('freeTpl', data);

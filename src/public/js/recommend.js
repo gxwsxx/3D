@@ -28,6 +28,7 @@ function slider(){
 			element.onkeydown = function(e){
 				if(e.keyCode === 37){
 					lunbo();
+					tablist[0].className = 'active';
 				}
 			}
 		}
@@ -35,6 +36,7 @@ function slider(){
 			element.onkeydown = function(e){
 				if(e.keyCode === 39){
 					lunbo();
+					tablist[index].className = 'active';
 				}
 			}
 		}

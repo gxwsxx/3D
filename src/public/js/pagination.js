@@ -29,6 +29,8 @@
 		for(var key in options){
 			param[key] = options[key];
 		}
+		param.total = param.total || param.items.length;
+
 		if(!param.template_id || !param.container_id || param.items.length === 0) return;
 
 		var loadData = function(){
@@ -46,12 +48,12 @@
 			}
 			var html = template(param.template_id, data);
 			document.getElementById(param.container_id).innerHTML = html;
+
+
 			if(pages === 1) {
 				prev.style.display = "none";
 				next.style.display = "none";
-				return;
-			}
-			if(param.curr === 1){
+			}else if(param.curr === 1){
 				prev.style.display = "none";
 				next.style.display = "block";
 			}else if(param.curr === pages){
@@ -62,8 +64,9 @@
 				next.style.display = "block";
 			}
 
-			var nodelist = document.querySelectorAll('#'+param.container_id+' a');
+			var nodelist = document.querySelectorAll('#'+param.container_id+' a') || [];
 				nodelist = Array.prototype.slice.call(nodelist);
+			// nodelist[0].focus();
 			nodelist.forEach(function(element, index){
 				if(index % param.row === param.row-1){
 					element.onkeydown = function(e){

@@ -73,12 +73,7 @@
 		<div class="prev"></div>
 		<div class="next"></div>
 		<img class="car-bg" src="../uploads/car-bg.jpg" />
-		<div id="car-list" class="car-list">
-			<a href="">
-				<img src="../public/images/car-default.jpg">
-				<div class="title">顶级法拉利</div>
-			</a>
-		</div>
+		<div id="car-list" class="car-list"></div>
 		
 	</div>
 	<div id="footer" class="footer">
@@ -105,7 +100,6 @@
 		</div>
 	</div>
 
-	<script src="../public/js/jj.js"></script>
 	<script src="../public/js/common.js"></script>
 	<script src="../public/js/pagination.js"></script>
 	<script id="carTpl" type="text/html">
@@ -127,12 +121,17 @@
 		});
 		var title = "";
 		function addMarquee(obj){
-			title = obj.children[1].innerHTML;
+			var reg = new RegExp("(<|<\/)marquee>", "g");
+			title = obj.children[1].innerHTML.replace(reg, "");
 			if(title.length > 8){
-				obj.children[1].innerHTML = "<marquee behavior='scroll' direction = 'left' scrollamount='5'>"+title+"</marquee>";
+				obj.children[1].innerHTML = "<marquee>"+title+"</marquee>";
 			}
 		}
 		function removeMarquee(obj){
+			if(!title) {
+				var reg = new RegExp("(<|<\/)marquee>", "g");
+				title = obj.children[1].innerHTML.replace(reg, "");
+			}
 			if(title.length > 8){
 				obj.children[1].innerHTML = title;
 			}

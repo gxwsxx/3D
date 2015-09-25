@@ -9,6 +9,7 @@
 	top: 290px;
 	width: 25px;
 	height: 80px;
+	display: none;
 }
 .car-box .prev {
 	left: 0;

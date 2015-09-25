@@ -92,7 +92,7 @@
 	<script src="../public/js/pagination.js"></script>
 	<script id="documentaryTpl" type="text/html">
 		{{each list as value i}}
-			<a href="{{value.url}}">
+			<a onfocus="showDocumentaryContent(this)" href="{{value.url}}">
 				<div class="title hidden">{{value.title}}</div>
 				<div class="descripton hidden">{{value.descripton}}</div>
 				{{if value.icon}}
@@ -112,17 +112,10 @@
 			items: json.items
 		});
 
-		var aList = document.querySelectorAll('#documentary-list a');
-			aList = Array.prototype.slice.call(aList);
-		aList.forEach(function(element, index){
-			element.onfocus = function(){
-				document.querySelector('#documentary-content h1').innerHTML = this.children[0].innerHTML;
-				document.querySelector('#documentary-content p').innerHTML = this.children[1].innerHTML;
-			}
-			if(index === 0){
-				element.focus();
-			}
-		});
+		function showDocumentaryContent(obj){
+			document.querySelector('#documentary-content h1').innerHTML = obj.children[0].innerHTML;
+			document.querySelector('#documentary-content p').innerHTML = obj.children[1].innerHTML;
+		}
 	</script>
 </body>
 </html>

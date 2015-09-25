@@ -11,40 +11,52 @@
 			total: 12,    //总记录数
 			items: [{
 			    		img: "",
-			    		url: "###"
+			    		url: "###",
+			    		title: "跑跑飞车跑飞车跑跑飞车跑跑飞车跑跑飞车跑跑飞车跑跑飞车跑跑飞跑飞车跑跑飞车跑跑飞车跑跑飞车跑跑飞车跑跑飞车跑跑飞跑飞车跑跑飞车跑跑飞车跑跑飞车跑跑飞车跑跑飞车跑跑飞"
 			    	},{
 			    		img: "../uploads/img3.jpg",
-			    		url: "###"
+			    		url: "###",
+			    		title: "跑跑飞车跑跑飞车跑跑飞车跑跑飞车跑跑飞车跑跑飞车跑跑飞车跑跑飞车"
 			    	},{
 			    		img: "../public/images/free-default.jpg",
-			    		url: "###"
+			    		url: "###",
+			    		title: "跑跑飞车"
 			    	},{
 			    		img: "../public/images/free-default.jpg",
-			    		url: "###"
+			    		url: "###",
+			    		title: "跑跑飞车"
 			    	},{
 			    		img: "../public/images/free-default.jpg",
-			    		url: "###"
+			    		url: "###",
+			    		title: "跑跑飞车"
 			    	},{
 			    		img: "../public/images/free-default.jpg",
-			    		url: "###"
+			    		url: "###",
+			    		title: "跑跑飞车"
 			    	},{
 			    		img: "",
-			    		url: "###"
+			    		url: "###",
+			    		title: "跑跑飞车"
 			    	},{
 			    		img: "../uploads/img3.jpg",
-			    		url: "###"
+			    		url: "###",
+			    		title: "跑跑飞车"
 			    	},{
 			    		img: "../public/images/free-default.jpg",
-			    		url: "###"
+			    		url: "###",
+			    		title: "跑跑飞车"
 			    	},{
 			    		img: "../public/images/free-default.jpg",
-			    		url: "###"
+			    		url: "###",
+			    		title: "跑跑飞车"
 			    	},{
 			    		img: "../public/images/free-default.jpg",
-			    		url: "###"
+			    		url: "###",
+			    		title: "跑跑飞车"
 			    	},{
 			    		img: "../public/images/free-default.jpg",
-			    		url: "###"
+			    		url: "###",
+			    		title: "跑跑飞车"
 			    	}]
 		}
 	</script>
@@ -58,15 +70,14 @@
 		<span class="premiere hidden"></span>
 	</div>
 	<div id="variety-box" class="variety-box">
-		<img id="variety-big" class="variety-big" src="" />
+		<div id="variety-big" class="variety-big">
+			<img src="" width="590" height="420" />
+			<div class="variety-title">123132121</div>
+		</div>
 		<div class="variety-content">
 			<div class="prev"></div>
 			<div class="next"></div>
-			<div id="variety-list" class="variety-list">
-				<!-- <a href="">
-					<img src="../public/images/variety-default02.jpg">
-				</a> -->
-			</div>
+			<div id="variety-list" class="variety-list"></div>
 		</div>
 	</div>
 	<div id="footer" class="footer">
@@ -97,8 +108,9 @@
 	<script src="../public/js/pagination.js"></script>
 	<script id="varietyTpl" type="text/html">
 		{{each list as value i}}
-			<a href="{{value.url}}">
+			<a onfocus="showVarietyBig(this)" href="{{value.url}}">
 				<img src="{{value.img | defaultImg:'../public/images/variety-default02.jpg'}}">
+				<div class="hidden">{{value.title}}</div>
 			</a>
 		{{/each}}
 	</script>
@@ -111,17 +123,17 @@
 			total: json.total,
 			items: json.items
 		});
-
-		var aList = document.querySelectorAll('#variety-list a');
-			aList = Array.prototype.slice.call(aList);
-		aList.forEach(function(element, index){
-			element.onfocus = function(){
-				document.querySelector('#variety-big').src = this.children[0].src;
+		function showVarietyBig(obj){
+			document.querySelector('#variety-big img').src = obj.children[0].src;
+			addMarquee(obj);
+		}
+		function addMarquee(obj){
+			title = obj.children[1].innerHTML;
+			if(title.length > 21){
+				title = "<marquee>"+title+"</marquee>";
 			}
-			if(index === 0){
-				element.focus();
-			}
-		});
+			document.querySelector('#variety-big .variety-title').innerHTML = title;
+		}
 	</script>
 </body>
 </html>

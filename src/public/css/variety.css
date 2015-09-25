@@ -19,8 +19,25 @@
 	background: url('../images/next.png') no-repeat;
 }
 .variety-box .variety-big {
+	position: relative;
 	width: 590px;
 	height: 420px;
+}
+.variety-box .variety-big img {
+	width: 590px;
+	height: 420px;
+}
+.variety-box .variety-big .variety-title {
+	position: absolute;
+	bottom: 0;
+	font-size: 28px;
+	color: #ffffff;
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	background: rgba(0,0,0,.6);
+	overflow: hidden;
 }
 .variety-box .variety-content {
 	position: absolute;
