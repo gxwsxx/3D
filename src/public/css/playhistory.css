@@ -36,42 +36,43 @@
 	background: url('../images/next.png') no-repeat;
 }
 
-.playhistory-box .timeline {
+/*.playhistory-box .timeline {
 	margin: 30px auto 0 auto;
 	width: 930px;
-}
-.playhistory-box .timeline .timeline-list {
-	position: relative;
-	float: left;
+}*/
+.playhistory-box .timeline-list {
+	position: absolute;
+	top: 240px;
+	left: -10px;
 	width: 155px;
 	text-align: center;
 }
-.playhistory-box .timeline .timeline-list .icon-triangle {
+.playhistory-box .timeline-list .icon-triangle {
 	display: inline-block;
 	width: 20px;
 	height: 10px;
 	background: url('../images/triangle-gray.png') no-repeat;
 }
-.playhistory-box .timeline .timeline-list.focus .icon-triangle {
+.playhistory-box a:focus .timeline-list .icon-triangle {
 	background: url('../images/triangle-blue.png');
 }
-.playhistory-box .timeline .timeline-list .line {
+.playhistory-box .timeline-list .line {
 	position: absolute;
 	top: 14px;
 	width: 100%;
 	height: 1px;
 	background-color: #c8c8c8;
 }
-.playhistory-box .timeline .timeline-list.focus .line {
+.playhistory-box a:focus .timeline-list .line {
 	background-color: #1aa1ff;
 }
-.playhistory-box .timeline .timeline-list .date {
+.playhistory-box .timeline-list .date {
 	margin-top: 5px;
 	font-size: 24px;
 	color: #c8c8c8;
 	line-height: 26px;
 }
-.playhistory-box .timeline .timeline-list.focus .date {
+.playhistory-box a:focus .timeline-list .date {
 	color: #1aa1ff;
 }
 

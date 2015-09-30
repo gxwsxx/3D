@@ -23,23 +23,21 @@ function slider(){
 			tablist[index].className = 'focus';
 			curr = index;
 
-		};
-		if(index === 0){
-			element.onkeydown = function(e){
-				if(e.keyCode === 37){
+			this.onkeydown = function(e){
+				e = e || window.event;
+				if(e.keyCode === 37 && index === 0){
 					lunbo();
 					tablist[0].className = 'active';
-				}
-			}
-		}
-		if(index === length - 1){
-			element.onkeydown = function(e){
-				if(e.keyCode === 39){
+				}else if(e.keyCode === 39 && index === length - 1){
+					lunbo();
+					tablist[index].className = 'active';
+				}else if(e.keyCode === 38 || e.keyCode === 40){
 					lunbo();
 					tablist[index].className = 'active';
 				}
 			}
-		}
+
+		};
 	});
 	tab_content[0].style.display = 'block';
 	tablist[0].className = 'active';
